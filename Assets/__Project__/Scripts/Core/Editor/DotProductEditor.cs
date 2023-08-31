@@ -14,7 +14,7 @@ namespace Core.Editor
 
         #endregion
 
-        #region SERIALIZED_VARIABLEs
+        #region SERIALIZED_VARIABLES
 
         private SerializedObject selfObject;
         private SerializedProperty firstPointProperty;
@@ -23,7 +23,7 @@ namespace Core.Editor
 
         #endregion
 
-        #region PRIVATE_VARIABLEs
+        #region PRIVATE_VARIABLES
 
         private readonly GUIStyle guiStyle = new GUIStyle();
 
@@ -74,10 +74,10 @@ namespace Core.Editor
 
         #region PRIVATE_VARIABLES
 
-        private Vector3 GetMovePoint(Vector3 position)
+        private Vector3 GetMovePoint(Vector3 point)
         {
             float size = HandleUtility.GetHandleSize(Vector3.zero) * 0.25f;
-            Vector3 newPoint = Handles.FreeMoveHandle(position, Quaternion.identity, size, Vector3.zero, Handles.SphereHandleCap);
+            Vector3 newPoint = Handles.FreeMoveHandle(point, Quaternion.identity, size, Vector3.zero, Handles.SphereHandleCap);
 
             return newPoint;
         }
@@ -111,6 +111,7 @@ namespace Core.Editor
         private void InitProperties()
         {
             selfObject = new SerializedObject(this);
+
             firstPointProperty = selfObject.FindProperty("firstPoint");
             secondPointProperty = selfObject.FindProperty("secondPoint");
             centerPointProperty = selfObject.FindProperty("centerPoint");
