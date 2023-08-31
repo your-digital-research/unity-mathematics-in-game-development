@@ -81,13 +81,13 @@ namespace Core.Editor
             return newPoint;
         }
 
-        private Vector3 GetWorldRotation(Vector3 point, Vector3 center, Vector3 direction)
+        private Vector3 GetWorldRotation(Vector3 point, Vector3 center, Vector3 destination)
         {
-            Vector2 dir = (point - center).normalized;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            Vector2 direction = (point - center).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            return center + rotation * direction;
+            return center + rotation * destination;
         }
 
         private void AddListeners()
