@@ -46,7 +46,7 @@ namespace Core.Editor
 
         private void OnEnable()
         {
-            if (firstPoint == Vector3.zero && secondPoint == Vector3.zero) ResetPoints();
+            ResetPoints();
 
             InitGUIStyle();
             InitProperties();
