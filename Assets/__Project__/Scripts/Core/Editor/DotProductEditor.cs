@@ -59,10 +59,9 @@ namespace Core.Editor
             selfObject.Update();
 
             DisplayProperties();
+            DisplayResetButton();
 
             if (selfObject.ApplyModifiedProperties()) SceneView.RepaintAll();
-
-            DisplayResetButton();
         }
 
         private void OnDisable()
@@ -122,6 +121,7 @@ namespace Core.Editor
             if (!GUILayout.Button("Reset")) return;
 
             ResetPoints();
+
             SceneView.RepaintAll();
         }
 
