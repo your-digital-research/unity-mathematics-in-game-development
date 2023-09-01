@@ -29,19 +29,6 @@ namespace Core.Editor
 
         #endregion
 
-        #region PUBLIC_FUNCTIONS
-
-        [MenuItem("Tools/Dot Product")]
-        public static void ShowWindow()
-        {
-            DotProductEditor window = (DotProductEditor)GetWindow(typeof(DotProductEditor), true, "Dot Product");
-            window.minSize = new Vector2(300, 115);
-            window.maxSize = new Vector2(300, 115);
-            window.Show();
-        }
-
-        #endregion
-
         #region MONO
 
         private void OnEnable()
@@ -67,6 +54,19 @@ namespace Core.Editor
         private void OnDisable()
         {
             RemoveListeners();
+        }
+
+        #endregion
+
+        #region PUBLIC_FUNCTIONS
+
+        [MenuItem("Tools/Dot Product")]
+        public static void ShowWindow()
+        {
+            DotProductEditor window = (DotProductEditor)GetWindow(typeof(DotProductEditor), true, "Dot Product");
+            window.minSize = new Vector2(300, 115);
+            window.maxSize = new Vector2(300, 115);
+            window.Show();
         }
 
         #endregion
