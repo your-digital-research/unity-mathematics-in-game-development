@@ -25,6 +25,7 @@ namespace Core.Utilities
 
         /// <summary>
         /// Dot Product returns a three-dimensional vector which is perpendicular to the original vectors.
+        /// Uses only Vectors for calculation.
         /// </summary>
         /// <param name="firstVector">First Vector of Product</param>
         /// <param name="secondVector">Second Vector of Product</param>
@@ -42,6 +43,7 @@ namespace Core.Utilities
 
         /// <summary>
         /// Dot Product returns a three-dimensional vector which is perpendicular to the original vectors.
+        /// Uses the Matrix and Vector multiplication for calculation.
         /// </summary>
         /// <param name="firstVector">First Vector of Product</param>
         /// <param name="secondVector">Second Vector of Product</param>
