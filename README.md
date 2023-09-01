@@ -13,6 +13,7 @@ To be modified...
 
 ## Useful links
 1. [Dot Product Visualisation](https://twitter.com/FreyaHolmer/status/1200807790580768768?lang=en)
+2. [Cross Product Visualisation](https://twitter.com/FreyaHolmer/status/1203059678705602562?lang=en)
 
 ## Features
 * To be modified...
