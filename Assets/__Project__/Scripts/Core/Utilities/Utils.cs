@@ -22,5 +22,34 @@ namespace Core.Utilities
 
             return (firstVector.x * secondVector.x) + (firstVector.y * secondVector.y) + (firstVector.z * secondVector.z);
         }
+
+        public static Vector3 CrossProduct(Vector3 firstVector, Vector3 secondVector)
+        {
+            float x = firstVector.y * secondVector.z - firstVector.z * secondVector.y;
+            float y = firstVector.z * secondVector.x - firstVector.x * secondVector.z;
+            float z = firstVector.x * secondVector.y - firstVector.y * secondVector.x;
+
+            return new Vector3(x, y, z);
+        }
+
+        public static Vector3 CrossProductViaMatrix(Vector3 firstVector, Vector3 secondVector)
+        {
+            Matrix4x4 matrix = new Matrix4x4
+            {
+                [0, 0] = 0,
+                [0, 1] = secondVector.z,
+                [0, 2] = -secondVector.y,
+
+                [1, 0] = -secondVector.z,
+                [1, 1] = 0,
+                [1, 2] = secondVector.x,
+
+                [2, 0] = secondVector.y,
+                [2, 1] = -secondVector.x,
+                [2, 2] = 0
+            };
+
+            return matrix * firstVector;
+        }
     }
 }
