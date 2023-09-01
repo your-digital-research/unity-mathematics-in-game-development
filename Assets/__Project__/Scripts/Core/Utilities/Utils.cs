@@ -23,6 +23,14 @@ namespace Core.Utilities
             return (firstVector.x * secondVector.x) + (firstVector.y * secondVector.y) + (firstVector.z * secondVector.z);
         }
 
+        /// <summary>
+        /// Dot Product returns a three-dimensional vector which is perpendicular to the original vectors.
+        /// </summary>
+        /// <param name="firstVector">First Vector of Product</param>
+        /// <param name="secondVector">Second Vector of Product</param>
+        /// <returns>
+        /// Returns three-dimensional vector which is perpendicular to the original vectors
+        /// </returns>
         public static Vector3 CrossProduct(Vector3 firstVector, Vector3 secondVector)
         {
             float x = firstVector.y * secondVector.z - firstVector.z * secondVector.y;
@@ -32,6 +40,14 @@ namespace Core.Utilities
             return new Vector3(x, y, z);
         }
 
+        /// <summary>
+        /// Dot Product returns a three-dimensional vector which is perpendicular to the original vectors.
+        /// </summary>
+        /// <param name="firstVector">First Vector of Product</param>
+        /// <param name="secondVector">Second Vector of Product</param>
+        /// <returns>
+        /// Returns three-dimensional vector which is perpendicular to the original vectors
+        /// </returns>
         public static Vector3 CrossProductViaMatrix(Vector3 firstVector, Vector3 secondVector)
         {
             Matrix4x4 matrix = new Matrix4x4
