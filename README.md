@@ -2,33 +2,34 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Contributing](#contributing)
-6. [License](#license)
+2. [Useful links](#usefullinks)
+3. [Features](#features)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Contributing](#contributing)
+7. [License](#license)
 
-## Introduction
+## <a name="introduction"></a>Introduction
 To be modified...
 
-## Useful links
+## <a name="usefullinks"></a>Useful links
 1. [Dot Product Visualisation](https://twitter.com/FreyaHolmer/status/1200807790580768768?lang=en)
 2. [Cross Product Visualisation](https://twitter.com/FreyaHolmer/status/1203059678705602562?lang=en)
 
-## Features
-* To be modified...
+## <a name="features"></a>Features
+To be modified...
 
-## Installation
+## <a name="installation"></a>Installation
 To install, follow these steps:
 1. Clone the repository.
 2. To be modified...
 
-## Usage
+## <a name="usage"></a>Usage
 To use the project, do the following:
 1. To be modified...
 
-## Contributing
+## <a name="contributing"></a>Contributing
 To be modified...
 
-## License
+## <a name="license"></a>License
 To be modified...
