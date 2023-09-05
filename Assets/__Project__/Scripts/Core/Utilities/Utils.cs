@@ -1,3 +1,4 @@
+using Core.Types;
 using UnityEngine;
 
 namespace Core.Utilities
@@ -68,6 +69,55 @@ namespace Core.Utilities
             };
 
             return matrix * firstVector;
+        }
+
+        /// <summary>
+        /// The Quaternion product.
+        /// Represented in scalar-vector form.
+        /// </summary>
+        /// <param name="firstQuaternion">First Quaternion of Product</param>
+        /// <param name="secondQuaternion">Second Quaternion of Product</param>
+        /// <returns>
+        /// Returns Quaternion product
+        /// </returns>
+        public static CustomQuaternion ScalarVector(CustomQuaternion firstQuaternion, CustomQuaternion secondQuaternion)
+        {
+            float firstScalar = firstQuaternion.w;
+            float secondScalar = secondQuaternion.w;
+
+            Vector3 firstVector = new Vector3(firstQuaternion.x, firstQuaternion.y, firstQuaternion.z);
+            Vector3 secondVector = new Vector3(secondQuaternion.x, secondQuaternion.y, secondQuaternion.z);
+
+            float finalScalar = firstScalar * secondScalar - Vector3.Dot(firstVector, secondVector);
+            Vector3 finalVector = firstScalar * secondVector + secondScalar * firstVector + Vector3.Cross(firstVector, secondVector);
+
+            return new CustomQuaternion(finalVector.x, finalVector.y, finalVector.z, finalScalar);
+        }
+
+        /// <summary>
+        /// Quaternion conjugation.
+        /// Conjugate the definition, which implies changing the sign of all imaginary terms.
+        /// </summary>
+        /// <param name="quaternion">Quaternion to conjugate</param>
+        /// <returns>Returns conjugate Quaternion</returns>
+        public static CustomQuaternion Conjugate(CustomQuaternion quaternion)
+        {
+            return new CustomQuaternion(-quaternion.x, -quaternion.y, -quaternion.z, quaternion.w);
+        }
+
+        /// <summary>
+        /// Create Quaternion using angle and axis.
+        /// </summary>
+        /// <param name="angle">Angle of Quaternion</param>
+        /// <param name="axis">Axis of Quaternion</param>
+        /// <returns>Returns a Quaternion</returns>
+        public static CustomQuaternion CreateQuaternion(float angle, Vector3 axis)
+        {
+            float realPart = Mathf.Cos(angle / 2f);
+            float imaginaryPartMagnitude = Mathf.Sin(angle / 2f);
+            Vector3 rotationAxisComponent = Vector3.Normalize(axis) * imaginaryPartMagnitude;
+
+            return new CustomQuaternion(rotationAxisComponent.x, rotationAxisComponent.y, rotationAxisComponent.z, realPart);
         }
     }
 }

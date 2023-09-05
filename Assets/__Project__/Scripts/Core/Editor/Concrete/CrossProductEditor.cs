@@ -83,7 +83,7 @@ namespace Core.Editor
 
         #region PUBLIC_FUNCTIONS
 
-        [MenuItem("Tools/Cross Product")]
+        [MenuItem("Tools/Cross Product", false, 2)]
         public static void ShowWindow()
         {
             CrossProductEditor window = (CrossProductEditor)GetWindow(typeof(CrossProductEditor), true, "Cross Product");

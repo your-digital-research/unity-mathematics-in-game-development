@@ -91,7 +91,7 @@ namespace Core.Editor
 
         #region PUBLIC_FUNCTIONS
 
-        [MenuItem("Tools/Dot Product")]
+        [MenuItem("Tools/Dot Product", false, 1)]
         public static void ShowWindow()
         {
             DotProductEditor window = (DotProductEditor)GetWindow(typeof(DotProductEditor), true, "Dot Product");
