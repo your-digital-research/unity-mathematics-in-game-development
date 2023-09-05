@@ -13,8 +13,8 @@
 To be modified...
 
 ## <a name="usefullinks"></a>Useful links
-1. [Dot Product Visualisation](https://twitter.com/FreyaHolmer/status/1200807790580768768?lang=en)
-2. [Cross Product Visualisation](https://twitter.com/FreyaHolmer/status/1203059678705602562?lang=en)
+1. [Dot Product Visualization](https://twitter.com/FreyaHolmer/status/1200807790580768768?lang=en)
+2. [Cross Product Visualization](https://twitter.com/FreyaHolmer/status/1203059678705602562?lang=en)
 3. [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
 4. [Visualizing quaternions (4d numbers) with stereographic projection](https://www.youtube.com/watch?v=d4EgbgTm0Bg&ab_channel=3Blue1Brown)
 5. [Quaternions and 3d rotation, explained interactively](https://www.youtube.com/watch?v=zjMuIxRvygQ&ab_channel=3Blue1Brown)
