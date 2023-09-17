@@ -80,7 +80,7 @@ namespace Core.Utilities
         /// <returns>
         /// Returns Quaternion product
         /// </returns>
-        public static CustomQuaternion ScalarVector(CustomQuaternion firstQuaternion, CustomQuaternion secondQuaternion)
+        public static CustomQuaternion MultiplyQuaternion(CustomQuaternion firstQuaternion, CustomQuaternion secondQuaternion)
         {
             float firstScalar = firstQuaternion.w;
             float secondScalar = secondQuaternion.w;
@@ -100,7 +100,7 @@ namespace Core.Utilities
         /// </summary>
         /// <param name="quaternion">Quaternion to conjugate</param>
         /// <returns>Returns conjugate Quaternion</returns>
-        public static CustomQuaternion Conjugate(CustomQuaternion quaternion)
+        public static CustomQuaternion ConjugateQuaternion(CustomQuaternion quaternion)
         {
             return new CustomQuaternion(-quaternion.x, -quaternion.y, -quaternion.z, quaternion.w);
         }
@@ -118,6 +118,25 @@ namespace Core.Utilities
             Vector3 rotationAxisComponent = Vector3.Normalize(axis) * imaginaryPartMagnitude;
 
             return new CustomQuaternion(rotationAxisComponent.x, rotationAxisComponent.y, rotationAxisComponent.z, realPart);
+        }
+
+        /// <summary>
+        /// Rotates point in Quaternion by given axis an angle
+        /// </summary>
+        /// <param name="point">Point to rotate</param>
+        /// <param name="axis">Axis of rotation</param>
+        /// <param name="angle">Angle of rotation</param>
+        /// <returns></returns>
+        public static Vector3 RotateQuaternion(Vector3 point, Vector3 axis, float angle)
+        {
+            CustomQuaternion quaternion = CreateQuaternion(angle, axis);
+            CustomQuaternion conjugateQuaternion = ConjugateQuaternion(quaternion);
+            CustomQuaternion quaternionOfPoint = new CustomQuaternion(point.x, point.y, point.z, 0f);
+            CustomQuaternion rotatedPoint = MultiplyQuaternion(quaternion, quaternionOfPoint);
+
+            rotatedPoint = MultiplyQuaternion(rotatedPoint, conjugateQuaternion);
+
+            return new Vector3(rotatedPoint.x, rotatedPoint.y, rotatedPoint.z);
         }
     }
 }

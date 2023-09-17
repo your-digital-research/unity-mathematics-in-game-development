@@ -15,10 +15,8 @@ namespace Core.Editor
         #region ABSTRACT_FUNCTIONS
 
         protected abstract void Reset();
+        protected abstract void OnSceneGUI(SceneView sceneView);
         protected abstract void DisplayProperties();
-        protected abstract void DrawContext(out Vector3 a, out Vector3 b, out Vector3 c);
-        protected abstract void CheckForRepaint(Vector3 a, Vector3 b, Vector3 c);
-        protected abstract void DrawLines(Vector3 a, Vector3 b, Vector3 c);
 
         #endregion
 
@@ -53,26 +51,6 @@ namespace Core.Editor
             SelfObject = new SerializedObject(this);
         }
 
-        protected virtual void UpdateGUI()
-        {
-            SelfObject.Update();
-
-            DisplayProperties();
-            DisplayResetButton();
-
-            if (SelfObject.ApplyModifiedProperties()) SceneView.RepaintAll();
-        }
-
-        protected virtual void DrawBlockGUI(string label, SerializedProperty property, float width)
-        {
-            EditorGUILayout.BeginHorizontal("box");
-
-            EditorGUILayout.LabelField(label, GUILayout.Width(width));
-            EditorGUILayout.PropertyField(property, GUIContent.none);
-
-            EditorGUILayout.EndHorizontal();
-        }
-
         #endregion
 
         #region PROTECTED_FUNCTIONS
@@ -82,16 +60,19 @@ namespace Core.Editor
             Repaint();
         }
 
+        protected void DrawBlockGUI(string label, SerializedProperty property)
+        {
+            EditorGUILayout.BeginHorizontal("box");
+
+            EditorGUILayout.LabelField(label, GUILayout.Width(100));
+            EditorGUILayout.PropertyField(property, GUIContent.none);
+
+            EditorGUILayout.EndHorizontal();
+        }
+
         #endregion
 
         #region PRIVATE_FUNCTIONS
-
-        private void OnSceneGUI(SceneView sceneView)
-        {
-            DrawContext(out Vector3 first, out Vector3 second, out Vector3 center);
-            CheckForRepaint(first, second, center);
-            DrawLines(first, second, center);
-        }
 
         private void AddListeners()
         {
@@ -110,6 +91,16 @@ namespace Core.Editor
             GuiStyle.fontSize = 16;
             GuiStyle.fontStyle = FontStyle.Bold;
             GuiStyle.normal.textColor = Color.white;
+        }
+
+        private void UpdateGUI()
+        {
+            SelfObject.Update();
+
+            DisplayProperties();
+            DisplayResetButton();
+
+            if (SelfObject.ApplyModifiedProperties()) SceneView.RepaintAll();
         }
 
         private void DisplayResetButton()

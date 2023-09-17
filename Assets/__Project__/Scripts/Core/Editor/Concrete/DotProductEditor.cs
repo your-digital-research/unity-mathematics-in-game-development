@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Core.Editor
 {
-    public class DotProductEditor : CommonEditor
+    public class DotProductEditor : CommonEditor, IContextDrawer
     {
         #region PUBLIC_VARIABLES
 
@@ -31,51 +31,18 @@ namespace Core.Editor
             centerPoint = Vector3.zero;
         }
 
+        protected override void OnSceneGUI(SceneView sceneView)
+        {
+            DrawContext(out Vector3 first, out Vector3 second, out Vector3 center);
+            CheckForRepaint(first, second, center);
+            DrawLines(first, second, center);
+        }
+
         protected override void DisplayProperties()
         {
-            DrawBlockGUI("First Point", firstPointProperty, 100);
-            DrawBlockGUI("Second Point", secondPointProperty, 100);
-            DrawBlockGUI("Center Point", centerPointProperty, 100);
-        }
-
-        protected override void DrawContext(out Vector3 first, out Vector3 second, out Vector3 center)
-        {
-            Handles.color = Color.red;
-            first = GetMovePoint(firstPoint);
-
-            Handles.color = Color.green;
-            second = GetMovePoint(secondPoint);
-
-            Handles.color = Color.white;
-            center = GetMovePoint(centerPoint);
-        }
-
-        protected override void CheckForRepaint(Vector3 first, Vector3 second, Vector3 center)
-        {
-            if (firstPoint == first && secondPoint == second && centerPoint == center) return;
-
-            Undo.RecordObject(this, "Tool Move");
-
-            firstPoint = first;
-            secondPoint = second;
-            centerPoint = center;
-
-            RepaintOnGUI();
-        }
-
-        protected override void DrawLines(Vector3 first, Vector3 second, Vector3 center)
-        {
-            Handles.Label(center, Utils.DotProduct(first, second, center).ToString("F2"), GuiStyle);
-
-            Handles.color = Color.black;
-
-            Vector3 leftSurface = GetWorldRotation(first, center, new Vector3(0f, 1f, 0f));
-            Vector3 rightSurface = GetWorldRotation(first, center, new Vector3(0f, -1f, 0f));
-
-            Handles.DrawAAPolyLine(5f, first, center);
-            Handles.DrawAAPolyLine(5f, second, center);
-            Handles.DrawAAPolyLine(5f, center, leftSurface);
-            Handles.DrawAAPolyLine(5f, center, rightSurface);
+            DrawBlockGUI("First Point", firstPointProperty);
+            DrawBlockGUI("Second Point", secondPointProperty);
+            DrawBlockGUI("Center Point", centerPointProperty);
         }
 
         protected override void InitProperties()
@@ -98,6 +65,46 @@ namespace Core.Editor
             window.minSize = new Vector2(300, 115);
             window.maxSize = new Vector2(300, 115);
             window.Show();
+        }
+
+        public void DrawContext(out Vector3 first, out Vector3 second, out Vector3 center)
+        {
+            Handles.color = Color.red;
+            first = GetMovePoint(firstPoint);
+
+            Handles.color = Color.green;
+            second = GetMovePoint(secondPoint);
+
+            Handles.color = Color.white;
+            center = GetMovePoint(centerPoint);
+        }
+
+        public void CheckForRepaint(Vector3 first, Vector3 second, Vector3 center)
+        {
+            if (firstPoint == first && secondPoint == second && centerPoint == center) return;
+
+            Undo.RecordObject(this, "Tool Move");
+
+            firstPoint = first;
+            secondPoint = second;
+            centerPoint = center;
+
+            RepaintOnGUI();
+        }
+
+        public void DrawLines(Vector3 first, Vector3 second, Vector3 center)
+        {
+            Handles.Label(center, Utils.DotProduct(first, second, center).ToString("F2"), GuiStyle);
+
+            Handles.color = Color.black;
+
+            Vector3 leftSurface = GetWorldRotation(first, center, new Vector3(0f, 1f, 0f));
+            Vector3 rightSurface = GetWorldRotation(first, center, new Vector3(0f, -1f, 0f));
+
+            Handles.DrawAAPolyLine(5f, first, center);
+            Handles.DrawAAPolyLine(5f, second, center);
+            Handles.DrawAAPolyLine(5f, center, leftSurface);
+            Handles.DrawAAPolyLine(5f, center, rightSurface);
         }
 
         #endregion

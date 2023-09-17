@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Core.Editor
 {
-    public class CrossProductEditor : CommonEditor
+    public class CrossProductEditor : CommonEditor, IContextDrawer
     {
         #region PUBLIC_VARIABLES
 
@@ -31,43 +31,18 @@ namespace Core.Editor
             crossProduct = Utils.CrossProduct(firstVector, secondVector);
         }
 
+        protected override void OnSceneGUI(SceneView sceneView)
+        {
+            DrawContext(out Vector3 first, out Vector3 second, out Vector3 cross);
+            CheckForRepaint(first, second, cross);
+            DrawLines(first, second, cross);
+        }
+
         protected override void DisplayProperties()
         {
-            DrawBlockGUI("First Vector", firstVectorProperty, 100);
-            DrawBlockGUI("Second Vector", secondVectorProperty, 100);
-            DrawBlockGUI("Cross Product", crossProductProperty, 100);
-        }
-
-        protected override void DrawContext(out Vector3 first, out Vector3 second, out Vector3 cross)
-        {
-            first = Handles.PositionHandle(firstVector, Quaternion.identity);
-            second = Handles.PositionHandle(secondVector, Quaternion.identity);
-
-            Handles.color = Color.blue;
-
-            cross = Utils.CrossProduct(first, second);
-
-            Handles.DrawSolidDisc(cross, Vector3.forward, 0.05f);
-        }
-
-        protected override void CheckForRepaint(Vector3 first, Vector3 second, Vector3 cross)
-        {
-            if (firstVector == first && secondVector == second) return;
-
-            Undo.RecordObject(this, "Tool Move");
-
-            firstVector = first;
-            secondVector = second;
-            crossProduct = cross;
-
-            RepaintOnGUI();
-        }
-
-        protected override void DrawLines(Vector3 first, Vector3 second, Vector3 cross)
-        {
-            DrawLineGUI(first, "First Vector", Color.green);
-            DrawLineGUI(second, "Second Vector", Color.red);
-            DrawLineGUI(cross, "Cross Product", Color.blue);
+            DrawBlockGUI("First Vector", firstVectorProperty);
+            DrawBlockGUI("Second Vector", secondVectorProperty);
+            DrawBlockGUI("Cross Product", crossProductProperty);
         }
 
         protected override void InitProperties()
@@ -90,6 +65,38 @@ namespace Core.Editor
             window.minSize = new Vector2(300, 115);
             window.maxSize = new Vector2(300, 115);
             window.Show();
+        }
+
+        public void DrawContext(out Vector3 first, out Vector3 second, out Vector3 cross)
+        {
+            first = Handles.PositionHandle(firstVector, Quaternion.identity);
+            second = Handles.PositionHandle(secondVector, Quaternion.identity);
+
+            Handles.color = Color.blue;
+
+            cross = Utils.CrossProduct(first, second);
+
+            Handles.DrawSolidDisc(cross, Vector3.forward, 0.05f);
+        }
+
+        public void CheckForRepaint(Vector3 first, Vector3 second, Vector3 cross)
+        {
+            if (firstVector == first && secondVector == second) return;
+
+            Undo.RecordObject(this, "Tool Move");
+
+            firstVector = first;
+            secondVector = second;
+            crossProduct = cross;
+
+            RepaintOnGUI();
+        }
+
+        public void DrawLines(Vector3 first, Vector3 second, Vector3 cross)
+        {
+            DrawLineGUI(first, "First Vector", Color.green);
+            DrawLineGUI(second, "Second Vector", Color.red);
+            DrawLineGUI(cross, "Cross Product", Color.blue);
         }
 
         #endregion
