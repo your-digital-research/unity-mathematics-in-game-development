@@ -138,5 +138,104 @@ namespace Core.Utilities
 
             return new Vector3(rotatedPoint.x, rotatedPoint.y, rotatedPoint.z);
         }
+
+        /// <summary>
+        /// Rotates the given point by a given angle.
+        /// </summary>
+        /// <param name="point">Point to rotate</param>
+        /// <param name="angleInDegrees">Rotation angle</param>
+        /// <returns>Returns the rotated angle</returns>
+        public static Vector2 RotationMatrix2D(Vector2 point, float angleInDegrees)
+        {
+            float angleInRadians = angleInDegrees * (Mathf.PI / 180);
+
+            Matrix4x4 matrix = new Matrix4x4
+            {
+                [0, 0] = Mathf.Cos(angleInRadians),
+                [0, 1] = -Mathf.Sin(angleInRadians),
+                [1, 1] = Mathf.Sin(angleInRadians),
+                [1, 1] = Mathf.Cos(angleInRadians)
+            };
+
+            return matrix * point;
+        }
+
+        /// <summary>
+        /// Return Yaw by given angle (Z axis)
+        /// </summary>
+        /// <param name="angle">Angle of rotation</param>
+        /// <returns>Return matrix of rotation</returns>
+        public static Matrix4x4 GetYaw(float angle)
+        {
+            float cosTheta = Mathf.Cos(angle);
+            float sinTheta = Mathf.Sin(angle);
+
+            Matrix4x4 matrix = new Matrix4x4
+            {
+                [0, 0] = cosTheta,
+                [0, 1] = -sinTheta,
+                [0, 2] = 0,
+                [1, 0] = sinTheta,
+                [1, 1] = cosTheta,
+                [1, 2] = 0,
+                [2, 0] = 0,
+                [2, 1] = 0,
+                [2, 2] = 1
+            };
+
+            return matrix;
+        }
+
+        /// <summary>
+        /// Return Pitch by given angle (X axis)
+        /// </summary>
+        /// <param name="angle">Angle of rotation</param>
+        /// <returns>Return matrix of rotation</returns>
+        public static Matrix4x4 GetPitch(float angle)
+        {
+            float cosTheta = Mathf.Cos(angle);
+            float sinTheta = Mathf.Sin(angle);
+
+            Matrix4x4 matrix = new Matrix4x4
+            {
+                [0, 0] = cosTheta,
+                [0, 1] = 0,
+                [0, 2] = -sinTheta,
+                [1, 0] = 0,
+                [1, 1] = 1,
+                [1, 2] = 0,
+                [2, 0] = sinTheta,
+                [2, 1] = 0,
+                [2, 2] = cosTheta
+            };
+
+            return matrix;
+        }
+
+        /// <summary>
+        /// Return Roll by given angle (Y axis)
+        /// </summary>
+        /// <param name="angle">Angle of rotation</param>
+        /// <returns>Return matrix of rotation</returns>
+        public static Matrix4x4 GetRoll(float angle)
+        {
+            float cosTheta = Mathf.Cos(angle);
+            float sinTheta = Mathf.Sin(angle);
+
+            Matrix4x4 matrix = new Matrix4x4
+            {
+                [0, 0] = 1,
+                [0, 1] = 0,
+                [0, 2] = 0,
+                [1, 0] = 0,
+                [1, 1] = cosTheta,
+                [1, 2] = -sinTheta,
+                [2, 0] = 0,
+                [2, 1] = sinTheta,
+                [2, 2] = cosTheta
+            };
+
+            return matrix;
+        }
     }
 }
