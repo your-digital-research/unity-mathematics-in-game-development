@@ -23,6 +23,7 @@ To be modified...
 8. [Quaternion](https://en.wikipedia.org/wiki/Quaternion)
 9. [Fantastic Quaternions - Numberphile](https://www.youtube.com/watch?v=3BR8tK-LuB0&ab_channel=Numberphile)
 10. [Khan Academy - Math - Precalculus - Unit 3: Complex numbers](https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:complex)
+11. [Visualizing Equations](https://www.jettelly.com/books/visualizing-equations-essential-math/)
 
 ## <a name="features"></a>Features
 To be modified...
