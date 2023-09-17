@@ -24,7 +24,7 @@ namespace Core.Editor
 
         #region OVERRIDDEN_FUNCTIONS
 
-        protected override void Reset()
+        protected override void ResetValues()
         {
             firstPoint = new Vector3(0.0f, 1.0f, 0.0f);
             secondPoint = new Vector3(0.5f, 0.5f, 0.0f);

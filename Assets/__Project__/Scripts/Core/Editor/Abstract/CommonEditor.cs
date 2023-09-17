@@ -14,7 +14,7 @@ namespace Core.Editor
 
         #region ABSTRACT_FUNCTIONS
 
-        protected abstract void Reset();
+        protected abstract void ResetValues();
         protected abstract void OnSceneGUI(SceneView sceneView);
         protected abstract void DisplayProperties();
 
@@ -24,7 +24,7 @@ namespace Core.Editor
 
         private void OnEnable()
         {
-            Reset();
+            ResetValues();
 
             InitGUIStyle();
             InitProperties();
@@ -107,7 +107,7 @@ namespace Core.Editor
         {
             if (!GUILayout.Button("Reset")) return;
 
-            Reset();
+            ResetValues();
 
             SceneView.RepaintAll();
         }

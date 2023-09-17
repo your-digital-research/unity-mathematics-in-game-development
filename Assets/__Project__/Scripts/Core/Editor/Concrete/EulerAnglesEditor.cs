@@ -30,7 +30,7 @@ namespace Core.Editor
 
         #region OVERRIDDEN_FUNCTIONS
 
-        protected override void Reset()
+        protected override void ResetValues()
         {
             angleX = 0;
             angleY = 0;

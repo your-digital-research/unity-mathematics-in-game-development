@@ -29,7 +29,7 @@ namespace Core.Editor
 
         #region OVERRIDDEN_FUNCTIONS
 
-        protected override void Reset()
+        protected override void ResetValues()
         {
             x = 0;
             y = 1;
