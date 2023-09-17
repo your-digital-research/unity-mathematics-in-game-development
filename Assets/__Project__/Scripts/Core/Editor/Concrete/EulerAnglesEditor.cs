@@ -195,6 +195,7 @@ namespace Core.Editor
                 new Vector3(-0.20f, 0f, -0.50f) * 0.5f,
                 new Vector3(-0.20f, 0f, -0.00f) * 0.5f,
             };
+
             for (int i = 0; i < arrow.Count; i++)
             {
                 arrow[i] = Utils.GetPitch(degreeY) * (Utils.GetRoll(degreeX) * (Utils.GetYaw(degreeZ) * arrow[i]));
