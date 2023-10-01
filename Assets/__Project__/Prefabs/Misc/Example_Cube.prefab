@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8566456838620564840}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108419783658686116, guid: 53ee8100299984facaf8d348422a0433, type: 3}
       propertyPath: m_VersionIndex
-      value: 2602
+      value: 2608
       objectReference: {fileID: 0}
     - target: {fileID: 108419783658686119, guid: 53ee8100299984facaf8d348422a0433, type: 3}
       propertyPath: m_Mesh
@@ -155,6 +155,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 108419784423156835, guid: 53ee8100299984facaf8d348422a0433, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2650
+      objectReference: {fileID: 0}
     - target: {fileID: 108419784423156838, guid: 53ee8100299984facaf8d348422a0433, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -167,13 +171,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 108419785287665622, guid: 53ee8100299984facaf8d348422a0433, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2653
+      objectReference: {fileID: 0}
     - target: {fileID: 108419785326891545, guid: 53ee8100299984facaf8d348422a0433, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 108419785326891545, guid: 53ee8100299984facaf8d348422a0433, type: 3}
       propertyPath: m_VersionIndex
-      value: 2608
+      value: 2614
       objectReference: {fileID: 0}
     - target: {fileID: 108419785326891548, guid: 53ee8100299984facaf8d348422a0433, type: 3}
       propertyPath: m_Mesh
@@ -185,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108419785446201012, guid: 53ee8100299984facaf8d348422a0433, type: 3}
       propertyPath: m_VersionIndex
-      value: 2602
+      value: 2608
       objectReference: {fileID: 0}
     - target: {fileID: 108419785446201015, guid: 53ee8100299984facaf8d348422a0433, type: 3}
       propertyPath: m_Mesh
@@ -197,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108419785511240512, guid: 53ee8100299984facaf8d348422a0433, type: 3}
       propertyPath: m_VersionIndex
-      value: 2647
+      value: 2653
       objectReference: {fileID: 0}
     - target: {fileID: 108419785511240515, guid: 53ee8100299984facaf8d348422a0433, type: 3}
       propertyPath: m_Mesh
