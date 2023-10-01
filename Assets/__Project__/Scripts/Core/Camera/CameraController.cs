@@ -27,7 +27,7 @@ namespace Core.Camera
 
         #endregion
 
-        #region MONO_FUNCTIONS
+        #region MONO
 
         private void Start()
         {
