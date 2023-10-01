@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using Cinemachine;
+using UniRx;
 
 namespace Core.Camera
 {
@@ -20,7 +22,8 @@ namespace Core.Camera
 
         #region PRIVATE_VARIABLES
 
-        private float currentXRotation;
+        private float _currentXRotation;
+        private IDisposable _movementDisposable;
 
         #endregion
 
@@ -31,12 +34,6 @@ namespace Core.Camera
             Init();
         }
 
-        private void Update()
-        {
-            HandleMovement();
-            HandleRotation();
-        }
-
         #endregion
 
         #region PRIVATE_FUNCTIONS
@@ -44,11 +41,30 @@ namespace Core.Camera
         private void Init()
         {
             InitRotations();
+            StartMovement();
         }
 
         private void InitRotations()
         {
-            currentXRotation = 0;
+            _currentXRotation = 0;
+        }
+
+        private void StartMovement()
+        {
+            _movementDisposable ??= Observable
+                .EveryUpdate()
+                .Repeat()
+                .Subscribe(_ =>
+                {
+                    HandleMovement();
+                    HandleRotation();
+                });
+        }
+
+        private void StopMovement()
+        {
+            _movementDisposable.Dispose();
+            _movementDisposable = null;
         }
 
         private void HandleMovement()
@@ -76,11 +92,11 @@ namespace Core.Camera
             transform.Rotate(Vector3.up * rotateX);
 
             // Calculate new X-axis rotation
-            currentXRotation -= rotateY;
-            currentXRotation = Mathf.Clamp(currentXRotation, xRotationClamp.x, xRotationClamp.y);
+            _currentXRotation -= rotateY;
+            _currentXRotation = Mathf.Clamp(_currentXRotation, xRotationClamp.x, xRotationClamp.y);
 
             // Create Quaternions for X and Y-axis rotations
-            Quaternion xRotation = Quaternion.Euler(currentXRotation, 0, 0);
+            Quaternion xRotation = Quaternion.Euler(_currentXRotation, 0, 0);
             Quaternion yRotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
 
             // Apply the rotations to the camera, blocking Z-axis rotation
