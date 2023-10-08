@@ -168,6 +168,7 @@ namespace Core.Camera
 
         private void HandleMovement()
         {
+#if UNITY_EDITOR
             // Movement Input
             float horizontalInput = Input.GetAxis("Horizontal");
             float verticalInput = Input.GetAxis("Vertical");
@@ -176,16 +177,19 @@ namespace Core.Camera
             bool isBoosted = Input.GetKey(KeyCode.LeftShift);
 
             Move(horizontalInput, verticalInput, upInput, downInput, isBoosted);
+#endif
             Move(_horizontalInput, _verticalInput, _upInput, _downInput, _isBoosted);
         }
 
         private void HandleRotation()
         {
+#if UNITY_EDITOR
             // Rotate Input
             float yaw = Input.GetAxis("Mouse X");
             float pitch = Input.GetAxis("Mouse Y");
 
             Rotate(yaw, pitch, false);
+#endif
             Rotate(_yaw, _pitch, true);
         }
 
