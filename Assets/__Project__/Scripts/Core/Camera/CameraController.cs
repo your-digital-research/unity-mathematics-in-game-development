@@ -1,6 +1,8 @@
+using Core.UI;
 using System;
 using UnityEngine;
 using Cinemachine;
+using Zenject;
 using UniRx;
 
 namespace Core.Camera
@@ -25,8 +27,31 @@ namespace Core.Camera
 
         #region PRIVATE_VARIABLES
 
-        private float _currentXRotation;
+        private CameraMovementView _cameraMovementView;
+
         private IDisposable _movementDisposable;
+
+        private float _currentXRotation;
+
+        private float _horizontalInput;
+        private float _verticalInput;
+        private float _downInput;
+        private float _upInput;
+
+        private bool _isBoosted;
+
+        private float _pitch;
+        private float _yaw;
+
+        #endregion
+
+        #region ZENJECT
+
+        [Inject]
+        private void Constructor(CameraMovementView cameraMovementView)
+        {
+            _cameraMovementView = cameraMovementView;
+        }
 
         #endregion
 
@@ -40,21 +65,87 @@ namespace Core.Camera
         private void OnDisable()
         {
             StopMovement();
+            RemoveListeners();
         }
 
         #endregion
 
         #region PRIVATE_FUNCTIONS
 
-        private void Init()
+        private void OnMovementUpdated(MovementDirection direction, bool toggle)
         {
-            InitRotations();
-            StartMovement();
+            switch (direction)
+            {
+                case MovementDirection.Unknown:
+                    break;
+                case MovementDirection.Forward:
+                    _verticalInput = toggle ? 1 : 0;
+                    break;
+                case MovementDirection.Right:
+                    _horizontalInput = toggle ? 1 : 0;
+                    break;
+                case MovementDirection.Back:
+                    _verticalInput = toggle ? -1 : 0;
+                    break;
+                case MovementDirection.Left:
+                    _horizontalInput = toggle ? -1 : 0;
+                    break;
+                case MovementDirection.Down:
+                    _downInput = toggle ? 1 : 0;
+                    break;
+                case MovementDirection.Up:
+                    _upInput = toggle ? 1 : 0;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
+            }
         }
 
-        private void InitRotations()
+        private void OnRotationUpdated(RotationDirection direction, bool toggle)
+        {
+            switch (direction)
+            {
+                case RotationDirection.Unknown:
+                    break;
+                case RotationDirection.PitchUp:
+                    _pitch = toggle ? 1 : 0;
+                    break;
+                case RotationDirection.YawRight:
+                    _yaw = toggle ? 1 : 0;
+                    break;
+                case RotationDirection.PitchDown:
+                    _pitch = toggle ? -1 : 0;
+                    break;
+                case RotationDirection.YawLeft:
+                    _yaw = toggle ? -1 : 0;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
+            }
+        }
+
+        private void Init()
+        {
+            InitFields();
+
+            StartMovement();
+
+            AddListeners();
+        }
+
+        private void InitFields()
         {
             _currentXRotation = 0;
+
+            _horizontalInput = 0;
+            _verticalInput = 0;
+            _upInput = 0;
+            _downInput = 0;
+
+            _isBoosted = false;
+
+            _pitch = 0;
+            _yaw = 0;
         }
 
         private void StartMovement()
@@ -84,6 +175,22 @@ namespace Core.Camera
             float downInput = Input.GetKey(KeyCode.Q) ? 1.0f : 0.0f;
             bool isBoosted = Input.GetKey(KeyCode.LeftShift);
 
+            Move(horizontalInput, verticalInput, upInput, downInput, isBoosted);
+            Move(_horizontalInput, _verticalInput, _upInput, _downInput, _isBoosted);
+        }
+
+        private void HandleRotation()
+        {
+            // Rotate Input
+            float yaw = Input.GetAxis("Mouse X");
+            float pitch = Input.GetAxis("Mouse Y");
+
+            Rotate(yaw, pitch, false);
+            Rotate(_yaw, _pitch, true);
+        }
+
+        private void Move(float horizontalInput, float verticalInput, float upInput = 0, float downInput = 0, bool isBoosted = false)
+        {
             Vector3 moveDirection = new Vector3(horizontalInput, upInput - downInput, verticalInput);
             moveDirection.Normalize(); // Ensure diagonal movement isn't faster
 
@@ -105,17 +212,13 @@ namespace Core.Camera
             selfTransform.position = clampedPosition;
         }
 
-        private void HandleRotation()
+        private void Rotate(float yaw, float pitch, bool includeTime)
         {
-            // Rotate Input
-            float rotateX = Input.GetAxis("Mouse X") * rotationSpeed;
-            float rotateY = Input.GetAxis("Mouse Y") * rotationSpeed;
-
             // Apply Rotation
-            transform.Rotate(Vector3.up * rotateX);
+            transform.Rotate(Vector3.up * yaw * (includeTime ? rotationSpeed : 5) * (includeTime ? Time.deltaTime : 1));
 
             // Calculate new X-axis rotation
-            _currentXRotation -= rotateY;
+            _currentXRotation -= pitch * (includeTime ? rotationSpeed : 5) * (includeTime ? Time.deltaTime : 1);
             _currentXRotation = Mathf.Clamp(_currentXRotation, xRotationClamp.x, xRotationClamp.y);
 
             // Create Quaternions for X and Y-axis rotations
@@ -124,6 +227,22 @@ namespace Core.Camera
 
             // Apply the rotations to the camera, blocking Z-axis rotation
             transform.rotation = Quaternion.Euler(xRotation.eulerAngles.x, yRotation.eulerAngles.y, 0);
+        }
+
+        private void AddListeners()
+        {
+            if (_cameraMovementView == null) return;
+
+            _cameraMovementView.MovementUpdated += OnMovementUpdated;
+            _cameraMovementView.RotationUpdated += OnRotationUpdated;
+        }
+
+        private void RemoveListeners()
+        {
+            if (_cameraMovementView == null) return;
+
+            _cameraMovementView.MovementUpdated -= OnMovementUpdated;
+            _cameraMovementView.RotationUpdated -= OnRotationUpdated;
         }
 
         #endregion

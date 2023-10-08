@@ -212,7 +212,7 @@ MonoBehaviour:
   brain: {fileID: 7628833003929566150}
   mainCamera: {fileID: 7628833005483558855}
   movementSpeed: 15
-  rotationSpeed: 5
+  rotationSpeed: 30
   xRotationClamp: {x: -45, y: 45}
   xPositionClamp: {x: -100, y: 100}
   yPositionClamp: {x: -100, y: 100}
