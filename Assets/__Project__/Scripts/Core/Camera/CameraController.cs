@@ -37,6 +37,11 @@ namespace Core.Camera
             Init();
         }
 
+        private void OnDisable()
+        {
+            StopMovement();
+        }
+
         #endregion
 
         #region PRIVATE_FUNCTIONS
