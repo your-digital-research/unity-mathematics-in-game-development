@@ -231,16 +231,12 @@ namespace Core.Camera
 
         private void AddListeners()
         {
-            if (_cameraMovementView == null) return;
-
             _cameraMovementView.MovementUpdated += OnMovementUpdated;
             _cameraMovementView.RotationUpdated += OnRotationUpdated;
         }
 
         private void RemoveListeners()
         {
-            if (_cameraMovementView == null) return;
-
             _cameraMovementView.MovementUpdated -= OnMovementUpdated;
             _cameraMovementView.RotationUpdated -= OnRotationUpdated;
         }

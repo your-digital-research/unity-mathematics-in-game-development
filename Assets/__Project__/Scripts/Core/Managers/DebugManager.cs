@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Core.Managers
 {
@@ -28,6 +29,16 @@ namespace Core.Managers
         private void OnDisable()
         {
             StopFPSMeasurement();
+        }
+
+        #endregion
+
+        #region PUBLIC_FUNCTIONS
+
+        public void Reload()
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.name);
         }
 
         #endregion
