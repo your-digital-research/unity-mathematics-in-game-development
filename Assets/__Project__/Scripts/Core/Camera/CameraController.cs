@@ -14,8 +14,8 @@ namespace Core.Camera
         [SerializeField] private CinemachineVirtualCamera mainCamera;
 
         [Header("Settings")]
-        [SerializeField] [Range(5, 25)] private float moveSpeed;
-        [SerializeField] [Range(0, 360)] private float rotateSpeed;
+        [SerializeField] [Range(5, 25)] private float movementSpeed;
+        [SerializeField] [Range(0, 360)] private float rotationSpeed;
         [SerializeField] [NaughtyAttributes.MinMaxSlider(-180, 180)] private Vector2 xRotationClamp;
         [SerializeField] [NaughtyAttributes.MinMaxSlider(-250, 250)] private Vector2 xPositionClamp;
         [SerializeField] [NaughtyAttributes.MinMaxSlider(-250, 250)] private Vector2 yPositionClamp;
@@ -77,14 +77,16 @@ namespace Core.Camera
             float verticalInput = Input.GetAxis("Vertical");
             float upInput = Input.GetKey(KeyCode.E) ? 1.0f : 0.0f;
             float downInput = Input.GetKey(KeyCode.Q) ? 1.0f : 0.0f;
+            bool isBoosted = Input.GetKey(KeyCode.LeftShift);
 
             Vector3 moveDirection = new Vector3(horizontalInput, upInput - downInput, verticalInput);
             moveDirection.Normalize(); // Ensure diagonal movement isn't faster
 
             Transform selfTransform = transform;
+            float speed = isBoosted ? movementSpeed * 2 : movementSpeed;
 
             // Apply Movement
-            selfTransform.Translate(moveDirection * (moveSpeed * Time.deltaTime));
+            selfTransform.Translate(moveDirection * (speed * Time.deltaTime));
 
             // Clamp Position
             Vector3 position = selfTransform.position;
@@ -101,8 +103,8 @@ namespace Core.Camera
         private void HandleRotation()
         {
             // Rotate Input
-            float rotateX = Input.GetAxis("Mouse X") * rotateSpeed;
-            float rotateY = Input.GetAxis("Mouse Y") * rotateSpeed;
+            float rotateX = Input.GetAxis("Mouse X") * rotationSpeed;
+            float rotateY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
             // Apply Rotation
             transform.Rotate(Vector3.up * rotateX);
