@@ -27,6 +27,11 @@ namespace Core.Misc
             Init();
         }
 
+        private void OnDisable()
+        {
+            StopRotation();
+        }
+
         #endregion
 
         #region PRIVATE_FUNCTIONS
