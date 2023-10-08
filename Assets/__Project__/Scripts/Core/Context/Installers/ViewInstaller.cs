@@ -4,11 +4,13 @@ using Zenject;
 
 namespace Core.Context
 {
-    public class SceneInstaller : MonoInstaller
+    public class ViewInstaller : MonoInstaller
     {
         #region SERIALIZED_VARIABLES
 
-        [Header("References")]
+        [Header("Views")]
+        [SerializeField] private DebugView debugView;
+        [SerializeField] private MainMenuView mainMenuView;
         [SerializeField] private CameraMovementView cameraMovementView;
 
         #endregion
@@ -17,15 +19,17 @@ namespace Core.Context
 
         public override void InstallBindings()
         {
-            Bind();
+            BindViews();
         }
 
         #endregion
 
         #region PRIVATE_FUNCTIONS
 
-        private void Bind()
+        private void BindViews()
         {
+            Container.Bind<DebugView>().FromInstance(debugView);
+            Container.Bind<MainMenuView>().FromInstance(mainMenuView).AsSingle();
             Container.Bind<CameraMovementView>().FromInstance(cameraMovementView).AsSingle();
         }
 
