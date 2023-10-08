@@ -17,6 +17,9 @@ namespace Core.Camera
         [SerializeField] [Range(5, 25)] private float moveSpeed;
         [SerializeField] [Range(0, 360)] private float rotateSpeed;
         [SerializeField] [NaughtyAttributes.MinMaxSlider(-180, 180)] private Vector2 xRotationClamp;
+        [SerializeField] [NaughtyAttributes.MinMaxSlider(-250, 250)] private Vector2 xPositionClamp;
+        [SerializeField] [NaughtyAttributes.MinMaxSlider(-250, 250)] private Vector2 yPositionClamp;
+        [SerializeField] [NaughtyAttributes.MinMaxSlider(-250, 250)] private Vector2 zPositionClamp;
 
         #endregion
 
@@ -78,8 +81,21 @@ namespace Core.Camera
             Vector3 moveDirection = new Vector3(horizontalInput, upInput - downInput, verticalInput);
             moveDirection.Normalize(); // Ensure diagonal movement isn't faster
 
+            Transform selfTransform = transform;
+
             // Apply Movement
-            transform.Translate(moveDirection * (moveSpeed * Time.deltaTime));
+            selfTransform.Translate(moveDirection * (moveSpeed * Time.deltaTime));
+
+            // Clamp Position
+            Vector3 position = selfTransform.position;
+
+            float clampedX = Mathf.Clamp(position.x, xPositionClamp.x, xPositionClamp.y);
+            float clampedY = Mathf.Clamp(position.y, yPositionClamp.x, yPositionClamp.y);
+            float clampedZ = Mathf.Clamp(position.z, zPositionClamp.x, zPositionClamp.y);
+
+            Vector3 clampedPosition = new Vector3(clampedX, clampedY, clampedZ);
+
+            selfTransform.position = clampedPosition;
         }
 
         private void HandleRotation()
