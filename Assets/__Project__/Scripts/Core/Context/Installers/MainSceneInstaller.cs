@@ -1,4 +1,5 @@
 using Core.Managers;
+using Core.Loaders;
 using Core.UI;
 using UnityEngine;
 using Zenject;
@@ -13,6 +14,9 @@ namespace Core.Context
         [SerializeField] private GameManager gameManager;
         [SerializeField] private DebugManager debugManager;
 
+        [Header("Loaders")]
+        [SerializeField] private SceneLoader sceneLoader;
+
         [Header("Views")]
         [SerializeField] private DebugView debugView;
         [SerializeField] private MainMenuView mainMenuView;
@@ -24,6 +28,7 @@ namespace Core.Context
         public override void InstallBindings()
         {
             BindManagers();
+            BindLoaders();
             BindViews();
         }
 
@@ -35,6 +40,11 @@ namespace Core.Context
         {
             Container.Bind<GameManager>().FromInstance(gameManager).AsSingle();
             Container.Bind<DebugManager>().FromInstance(debugManager).AsSingle();
+        }
+
+        private void BindLoaders()
+        {
+            Container.Bind<SceneLoader>().FromInstance(sceneLoader).AsSingle();
         }
 
         private void BindViews()

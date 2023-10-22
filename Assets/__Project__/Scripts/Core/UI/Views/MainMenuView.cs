@@ -1,4 +1,5 @@
 using Core.Managers;
+using Core.Loaders;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -23,15 +24,17 @@ namespace Core.UI
         #region PRIVATE_VARIABLES
 
         private GameManager _gameManager;
+        private SceneLoader _sceneLoader;
 
         #endregion
 
         #region ZENJECT
 
         [Inject]
-        private void Constructor(GameManager gameManager)
+        private void Constructor(GameManager gameManager, SceneLoader sceneLoader)
         {
             _gameManager = gameManager;
+            _sceneLoader = sceneLoader;
         }
 
         #endregion
@@ -87,7 +90,7 @@ namespace Core.UI
 
         private void OnExampleButtonClicked(ExampleScene exampleScene)
         {
-            Debug.Log("OnExampleButtonClicked() -> " + exampleScene);
+            _sceneLoader.LoadSceneByIndex((int)exampleScene);
         }
 
         private void Init()

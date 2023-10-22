@@ -38,7 +38,7 @@ namespace Core.Managers
         public void Reload()
         {
             Scene currentScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currentScene.name);
+            SceneManager.LoadScene(currentScene.name, LoadSceneMode.Single);
         }
 
         #endregion
