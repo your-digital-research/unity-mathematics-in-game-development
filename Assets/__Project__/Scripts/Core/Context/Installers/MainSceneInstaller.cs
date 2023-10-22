@@ -1,17 +1,21 @@
+using Core.Managers;
 using Core.UI;
 using UnityEngine;
 using Zenject;
 
 namespace Core.Context
 {
-    public class ViewInstaller : MonoInstaller
+    public class MainSceneInstaller : MonoInstaller
     {
         #region SERIALIZED_VARIABLES
+
+        [Header("Managers")]
+        [SerializeField] private GameManager gameManager;
+        [SerializeField] private DebugManager debugManager;
 
         [Header("Views")]
         [SerializeField] private DebugView debugView;
         [SerializeField] private MainMenuView mainMenuView;
-        [SerializeField] private CameraMovementView cameraMovementView;
 
         #endregion
 
@@ -19,6 +23,7 @@ namespace Core.Context
 
         public override void InstallBindings()
         {
+            BindManagers();
             BindViews();
         }
 
@@ -26,11 +31,16 @@ namespace Core.Context
 
         #region PRIVATE_FUNCTIONS
 
+        private void BindManagers()
+        {
+            Container.Bind<GameManager>().FromInstance(gameManager).AsSingle();
+            Container.Bind<DebugManager>().FromInstance(debugManager).AsSingle();
+        }
+
         private void BindViews()
         {
-            Container.Bind<DebugView>().FromInstance(debugView);
+            Container.Bind<DebugView>().FromInstance(debugView).AsSingle();
             Container.Bind<MainMenuView>().FromInstance(mainMenuView).AsSingle();
-            Container.Bind<CameraMovementView>().FromInstance(cameraMovementView).AsSingle();
         }
 
         #endregion

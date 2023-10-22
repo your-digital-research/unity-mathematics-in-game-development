@@ -48,7 +48,7 @@ namespace Core.Camera
         #region ZENJECT
 
         [Inject]
-        private void Constructor(CameraMovementView cameraMovementView)
+        private void Constructor([InjectOptional] CameraMovementView cameraMovementView)
         {
             _cameraMovementView = cameraMovementView;
         }
@@ -235,12 +235,16 @@ namespace Core.Camera
 
         private void AddListeners()
         {
+            if (_cameraMovementView == null) return;
+
             _cameraMovementView.MovementUpdated += OnMovementUpdated;
             _cameraMovementView.RotationUpdated += OnRotationUpdated;
         }
 
         private void RemoveListeners()
         {
+            if (_cameraMovementView == null) return;
+
             _cameraMovementView.MovementUpdated -= OnMovementUpdated;
             _cameraMovementView.RotationUpdated -= OnRotationUpdated;
         }
