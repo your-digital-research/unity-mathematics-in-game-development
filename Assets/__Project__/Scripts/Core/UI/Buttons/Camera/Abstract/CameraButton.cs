@@ -51,7 +51,6 @@ namespace Core.UI
 
         private void AddListeners()
         {
-            // Add a callback to the PointerClick event
             EventTrigger.Entry pointerDown = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown };
             EventTrigger.Entry pointerUp = new EventTrigger.Entry { eventID = EventTriggerType.PointerUp };
 
