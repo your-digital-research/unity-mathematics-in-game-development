@@ -59,8 +59,8 @@ namespace Core.UI
 
         private void InitButtons()
         {
-            movementButtons = GetComponentsInChildren<MovementButton>().ToList();
-            rotationButtons = GetComponentsInChildren<RotationButton>().ToList();
+            movementButtons = GetComponentsInChildren<MovementButton>(true).ToList();
+            rotationButtons = GetComponentsInChildren<RotationButton>(true).ToList();
         }
 
         private void AddListeners()

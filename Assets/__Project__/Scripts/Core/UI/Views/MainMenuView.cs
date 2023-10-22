@@ -1,4 +1,6 @@
 using Core.Managers;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -12,6 +14,9 @@ namespace Core.UI
         [SerializeField] private GameObject buttons;
         [SerializeField] private GameObject examples;
         [SerializeField] private GameObject settings;
+
+        [Header("Example Buttons")]
+        [SerializeField] [NaughtyAttributes.ReadOnly] private List<ExampleButton> exampleButtons;
 
         #endregion
 
@@ -36,6 +41,11 @@ namespace Core.UI
         private void Start()
         {
             Init();
+        }
+
+        private void OnDisable()
+        {
+            RemoveListeners();
         }
 
         #endregion
@@ -75,11 +85,25 @@ namespace Core.UI
 
         #region PRIVATE_FUNCTIONS
 
+        private void OnExampleButtonClicked(ExampleScene exampleScene)
+        {
+            Debug.Log("OnExampleButtonClicked() -> " + exampleScene);
+        }
+
         private void Init()
         {
+            InitButtons();
+
+            AddListeners();
+
             ToggleButtonsTab(true);
             ToggleExamplesTab(false);
             ToggleSettingsTab(false);
+        }
+
+        private void InitButtons()
+        {
+            exampleButtons = GetComponentsInChildren<ExampleButton>(true).ToList();
         }
 
         private void ToggleButtonsTab(bool value)
@@ -95,6 +119,16 @@ namespace Core.UI
         private void ToggleSettingsTab(bool value)
         {
             settings.SetActive(value);
+        }
+
+        private void AddListeners()
+        {
+            exampleButtons.ForEach(button => button.ExampleButtonClicked += OnExampleButtonClicked);
+        }
+
+        private void RemoveListeners()
+        {
+            exampleButtons.ForEach(button => button.ExampleButtonClicked -= OnExampleButtonClicked);
         }
 
         #endregion
