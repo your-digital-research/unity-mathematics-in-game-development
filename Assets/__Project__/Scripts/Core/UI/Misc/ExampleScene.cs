@@ -2,8 +2,7 @@ namespace Core.UI
 {
     public enum ExampleScene
     {
-        Unknown = -1,
-        MainScene,
+        Unknown,
         CameraMovementScene,
         DotProductScene,
     }

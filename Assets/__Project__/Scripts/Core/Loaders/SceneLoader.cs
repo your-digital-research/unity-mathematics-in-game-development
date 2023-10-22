@@ -1,3 +1,4 @@
+using Core.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,9 +8,14 @@ namespace Core.Loaders
     {
         #region PUBLIC_FUNCTIONS
 
-        public void LoadSceneByIndex(int index)
+        public void LoadMainScene()
         {
-            SceneManager.LoadScene(index, LoadSceneMode.Single);
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
+        }
+
+        public void LoadExampleScene(ExampleScene exampleScene)
+        {
+            SceneManager.LoadScene((int)exampleScene, LoadSceneMode.Single);
         }
 
         #endregion

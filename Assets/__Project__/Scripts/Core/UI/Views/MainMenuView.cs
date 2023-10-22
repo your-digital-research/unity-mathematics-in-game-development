@@ -90,7 +90,7 @@ namespace Core.UI
 
         private void OnExampleButtonClicked(ExampleScene exampleScene)
         {
-            _sceneLoader.LoadSceneByIndex((int)exampleScene);
+            _sceneLoader.LoadExampleScene(exampleScene);
         }
 
         private void Init()
