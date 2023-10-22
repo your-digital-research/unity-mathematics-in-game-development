@@ -53,22 +53,26 @@ namespace Core.UI
 
         #endregion
 
-        #region PRIVATE_FUNCTIONS
+        #region PUBLIC_FUNCTIONS
 
-        public void OnSettingsClick()
+        public void OnDebugButtonClick()
         {
             ToggleView(true);
         }
 
-        public void OnCloseClick()
+        public void OnCloseButtonClick()
         {
             ToggleView(false);
         }
 
-        public void OnReloadClick()
+        public void OnReloadButtonClick()
         {
             _debugManager.Reload();
         }
+
+        #endregion
+
+        #region PRIVATE_FUNCTIONS
 
         private void OnFPSUpdated(int fps)
         {
