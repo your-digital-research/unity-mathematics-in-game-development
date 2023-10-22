@@ -13,6 +13,15 @@ namespace Core.Managers
 
         #endregion
 
+        #region PUBLIC_FUNCTIONS
+
+        public void QuitApp()
+        {
+            Application.Quit();
+        }
+
+        #endregion
+
         #region PRIVATE_FUNCTIONS
 
         private void Init()
