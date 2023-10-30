@@ -16,8 +16,11 @@ namespace Core.Camera
         [SerializeField] private CinemachineVirtualCamera mainCamera;
 
         [Header("Settings")]
-        [SerializeField] [Range(5, 25)] private float movementSpeed;
-        [SerializeField] [Range(0, 360)] private float rotationSpeed;
+        [SerializeField] [Range(0, 25)] private float movementSpeed;
+        [SerializeField] [Range(0, 360)] private float touchRotationSpeed;
+        [SerializeField] [Range(0, 360)] private float inputRotationSpeed;
+        [SerializeField] [Range(0, 25)] private float zoomSpeed;
+        [SerializeField] [Range(0, 25)] private float panSpeed;
         [SerializeField] [NaughtyAttributes.MinMaxSlider(-180, 180)] private Vector2 xRotationClamp;
         [SerializeField] [NaughtyAttributes.MinMaxSlider(-250, 250)] private Vector2 xPositionClamp;
         [SerializeField] [NaughtyAttributes.MinMaxSlider(-250, 250)] private Vector2 yPositionClamp;
@@ -155,8 +158,10 @@ namespace Core.Camera
                 .Repeat()
                 .Subscribe(_ =>
                 {
+                    HandleInputRotation();
                     HandleMovement();
-                    HandleRotation();
+
+                    HandleTouch();
                 });
         }
 
@@ -164,6 +169,18 @@ namespace Core.Camera
         {
             _movementDisposable.Dispose();
             _movementDisposable = null;
+        }
+
+        private void HandleInputRotation()
+        {
+#if UNITY_EDITOR
+            // Rotate Input
+            float yaw = Input.GetAxis("Mouse X");
+            float pitch = Input.GetAxis("Mouse Y");
+
+            Rotate(yaw, pitch, false, inputRotationSpeed);
+#endif
+            Rotate(_yaw, _pitch, true, inputRotationSpeed);
         }
 
         private void HandleMovement()
@@ -181,16 +198,67 @@ namespace Core.Camera
             Move(_horizontalInput, _verticalInput, _upInput, _downInput, _isBoosted);
         }
 
-        private void HandleRotation()
+        private void HandleTouch()
         {
-#if UNITY_EDITOR
-            // Rotate Input
-            float yaw = Input.GetAxis("Mouse X");
-            float pitch = Input.GetAxis("Mouse Y");
+            switch (Input.touchCount)
+            {
+                case 1:
+                {
+                    HandleTouchRotation();
+                    break;
+                }
+                case 2:
+                {
+                    HandleZoom();
+                    break;
+                }
+                case 3:
+                {
+                    HandlePan();
+                    break;
+                }
+            }
+        }
 
-            Rotate(yaw, pitch, false);
-#endif
-            Rotate(_yaw, _pitch, true);
+        private void HandleZoom()
+        {
+            Touch touch0 = Input.GetTouch(0);
+            Touch touch1 = Input.GetTouch(1);
+
+            if (touch0.phase != TouchPhase.Moved && touch1.phase != TouchPhase.Moved) return;
+
+            float currentDistance = Vector2.Distance(touch0.position, touch1.position);
+            float prevDistance = Vector2.Distance(touch0.position - touch0.deltaPosition, touch1.position - touch1.deltaPosition);
+            float zoomDelta = currentDistance - prevDistance;
+
+            Zoom(zoomDelta);
+        }
+
+        private void HandleTouchRotation()
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase != TouchPhase.Moved) return;
+
+            Vector2 delta = touch.deltaPosition;
+
+            Rotate(delta.x, delta.y, true, touchRotationSpeed);
+        }
+
+        private void HandlePan()
+        {
+            Touch touch0 = Input.GetTouch(0);
+            Touch touch1 = Input.GetTouch(1);
+            Touch touch2 = Input.GetTouch(2);
+
+            if (touch0.phase != TouchPhase.Moved || touch1.phase != TouchPhase.Moved || touch2.phase != TouchPhase.Moved) return;
+
+            Vector2 delta0 = touch0.deltaPosition;
+            Vector2 delta1 = touch1.deltaPosition;
+            Vector2 delta2 = touch2.deltaPosition;
+            Vector2 averageDelta = (delta0 + delta1 + delta2) / 3f;
+
+            Pan(averageDelta);
         }
 
         private void Move(float horizontalInput, float verticalInput, float upInput = 0, float downInput = 0, bool isBoosted = false)
@@ -198,13 +266,55 @@ namespace Core.Camera
             Vector3 moveDirection = new Vector3(horizontalInput, upInput - downInput, verticalInput);
             moveDirection.Normalize(); // Ensure diagonal movement isn't faster
 
-            Transform selfTransform = transform;
             float speed = isBoosted ? movementSpeed * 2 : movementSpeed;
 
             // Apply Movement
-            selfTransform.Translate(moveDirection * (speed * Time.deltaTime));
+            transform.Translate(moveDirection * (speed * Time.deltaTime));
 
-            // Clamp Position
+            ClampPosition();
+        }
+
+        private void Rotate(float yaw, float pitch, bool includeTime, float rotationSpeed)
+        {
+            // Apply Rotation
+            transform.Rotate(Vector3.up * yaw * (includeTime ? rotationSpeed : 5) * (includeTime ? Time.deltaTime : 1));
+
+            ClampRotation(pitch, includeTime, rotationSpeed);
+        }
+
+        private void Zoom(float delta)
+        {
+            Transform selfTransform = transform;
+
+            Vector3 cameraPosition = selfTransform.position;
+
+            cameraPosition += selfTransform.forward * delta * zoomSpeed * Time.deltaTime;
+
+            selfTransform.position = cameraPosition;
+
+            ClampPosition();
+        }
+
+        private void Pan(Vector2 delta)
+        {
+            Transform selfTransform = transform;
+
+            Vector3 cameraPosition = selfTransform.position;
+            Vector3 right = transform.TransformDirection(Vector3.right);
+            Vector3 up = transform.TransformDirection(Vector3.up);
+
+            cameraPosition += right * delta.x * panSpeed * Time.deltaTime;
+            cameraPosition += up * delta.y * panSpeed * Time.deltaTime;
+
+            selfTransform.position = cameraPosition;
+
+            ClampPosition();
+        }
+
+        private void ClampPosition()
+        {
+            Transform selfTransform = transform;
+
             Vector3 position = selfTransform.position;
 
             float clampedX = Mathf.Clamp(position.x, xPositionClamp.x, xPositionClamp.y);
@@ -216,11 +326,8 @@ namespace Core.Camera
             selfTransform.position = clampedPosition;
         }
 
-        private void Rotate(float yaw, float pitch, bool includeTime)
+        private void ClampRotation(float pitch, bool includeTime, float rotationSpeed)
         {
-            // Apply Rotation
-            transform.Rotate(Vector3.up * yaw * (includeTime ? rotationSpeed : 5) * (includeTime ? Time.deltaTime : 1));
-
             // Calculate new X-axis rotation
             _currentXRotation -= pitch * (includeTime ? rotationSpeed : 5) * (includeTime ? Time.deltaTime : 1);
             _currentXRotation = Mathf.Clamp(_currentXRotation, xRotationClamp.x, xRotationClamp.y);
