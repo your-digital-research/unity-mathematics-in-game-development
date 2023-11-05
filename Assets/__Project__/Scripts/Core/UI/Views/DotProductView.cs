@@ -12,6 +12,7 @@ namespace Core.UI
         #region SERIALIZED_VARIABLES
 
         [Header("References")]
+        [SerializeField] private GameObject controlPanel;
         [SerializeField] private TextMeshProUGUI result;
 
         [Header("Settings")]
@@ -40,6 +41,15 @@ namespace Core.UI
         private void Start()
         {
             Init();
+        }
+
+        #endregion
+
+        #region PUBLIC_FUNCTIONS
+
+        public void OnControlPanelButtonClick()
+        {
+            ToggleControlPanel();
         }
 
         #endregion
@@ -127,6 +137,11 @@ namespace Core.UI
             float dotProduct = Utils.DotProduct(firstPointPosition, secondPointPosition, Vector3.zero);
 
             result.text = $"Result : {dotProduct:F}";
+        }
+
+        private void ToggleControlPanel()
+        {
+            controlPanel.SetActive(!controlPanel.activeSelf);
         }
 
         #endregion
