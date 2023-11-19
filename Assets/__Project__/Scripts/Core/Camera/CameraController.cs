@@ -7,7 +7,7 @@ using Cinemachine;
 using Zenject;
 using UniRx;
 
-namespace Core.Camera
+namespace Core.Cameras
 {
     public class CameraController : MonoBehaviour
     {
@@ -47,6 +47,13 @@ namespace Core.Camera
         private float _yaw;
 
         private bool _isBoosted;
+
+        #endregion
+
+        #region PROPERTIES
+
+        public CinemachineBrain Brain => brain;
+        public CinemachineVirtualCamera MainCamera => mainCamera;
 
         #endregion
 

@@ -237,5 +237,20 @@ namespace Core.Utilities
 
             return matrix;
         }
+
+        public static float Map(float value, float originalMin, float originalMax, float newMin, float newMax)
+        {
+            float normalizedValue = Mathf.InverseLerp(originalMin, originalMax, value);
+            float remappedValue = Mathf.Lerp(newMin, newMax, normalizedValue);
+
+            return remappedValue;
+        }
+
+        public static bool IsInFrontOfCamera(Vector3 worldPosition, Camera outputCamera)
+        {
+            Transform cameraTransform = outputCamera.transform;
+
+            return Vector3.Dot(worldPosition - cameraTransform.position, cameraTransform.forward) > 0f;
+        }
     }
 }

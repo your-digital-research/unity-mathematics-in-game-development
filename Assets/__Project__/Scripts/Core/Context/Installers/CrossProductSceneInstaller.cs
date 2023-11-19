@@ -1,3 +1,4 @@
+using Core.Cameras;
 using Core.Managers;
 using Core.Loaders;
 using UnityEngine;
@@ -16,6 +17,9 @@ namespace Core.Context
         [Header("Loaders")]
         [SerializeField] private SceneLoader sceneLoader;
 
+        [Header("Camera")]
+        [SerializeField] private CameraController cameraController;
+
         #endregion
 
         #region OVERRIDDEN_FUNCTIONS
@@ -24,6 +28,7 @@ namespace Core.Context
         {
             BindManagers();
             BindLoaders();
+            BindCamera();
         }
 
         #endregion
@@ -39,6 +44,11 @@ namespace Core.Context
         private void BindLoaders()
         {
             Container.Bind<SceneLoader>().FromInstance(sceneLoader).AsSingle();
+        }
+
+        private void BindCamera()
+        {
+            Container.Bind<CameraController>().FromInstance(cameraController).AsSingle();
         }
 
         #endregion
