@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e399c965c88c410ca34dab0c42d93b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
+  index: -1
   cone: {fileID: 6336455461803467918}
   cylinder: {fileID: 4743046287163709755}
 --- !u!1 &4743046287163709755

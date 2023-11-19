@@ -620,6 +620,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 5504502669829620742, guid: 5ec5cb328e014479c8c39bfed7708a9c, type: 3}
+      propertyPath: index
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ec5cb328e014479c8c39bfed7708a9c, type: 3}
 --- !u!1001 &1476961071
