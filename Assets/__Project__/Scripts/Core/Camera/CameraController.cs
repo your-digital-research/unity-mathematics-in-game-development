@@ -43,10 +43,10 @@ namespace Core.Camera
         private float _downInput;
         private float _upInput;
 
-        private bool _isBoosted;
-
         private float _pitch;
         private float _yaw;
+
+        private bool _isBoosted;
 
         #endregion
 
@@ -146,6 +146,7 @@ namespace Core.Camera
         private void Init()
         {
             InitFields();
+            InitRotation();
 
             StartMovement();
 
@@ -161,10 +162,19 @@ namespace Core.Camera
             _upInput = 0;
             _downInput = 0;
 
-            _isBoosted = false;
-
             _pitch = 0;
             _yaw = 0;
+
+            _isBoosted = false;
+        }
+
+        private void InitRotation()
+        {
+            Transform selfTransform = transform;
+
+            selfTransform.LookAt(Vector3.zero);
+
+            _currentXRotation = selfTransform.eulerAngles.x;
         }
 
         private void StartMovement()
