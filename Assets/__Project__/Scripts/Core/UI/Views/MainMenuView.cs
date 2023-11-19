@@ -1,9 +1,12 @@
-using Core.Managers;
 using Core.Loaders;
+using Core.Managers;
+using Core.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
+using UniRx;
 
 namespace Core.UI
 {
@@ -25,16 +28,18 @@ namespace Core.UI
 
         private GameManager _gameManager;
         private SceneLoader _sceneLoader;
+        private TransitionView _transitionView;
 
         #endregion
 
         #region ZENJECT
 
         [Inject]
-        private void Constructor(GameManager gameManager, SceneLoader sceneLoader)
+        private void Constructor(GameManager gameManager, SceneLoader sceneLoader, TransitionView transitionView)
         {
             _gameManager = gameManager;
             _sceneLoader = sceneLoader;
+            _transitionView = transitionView;
         }
 
         #endregion
@@ -43,7 +48,12 @@ namespace Core.UI
 
         private void Start()
         {
-            Init();
+            Observable.Timer(TimeSpan.FromSeconds(Constant.InitDelay)).Subscribe(_ =>
+            {
+                _transitionView.Hide();
+
+                Init();
+            });
         }
 
         private void OnDisable()
@@ -90,7 +100,7 @@ namespace Core.UI
 
         private void OnExampleButtonClicked(ExampleScene exampleScene)
         {
-            _sceneLoader.LoadExampleScene(exampleScene);
+            _transitionView.Show(() => _sceneLoader.LoadExampleScene(exampleScene));
         }
 
         private void Init()

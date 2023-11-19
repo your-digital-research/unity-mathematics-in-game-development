@@ -1,6 +1,7 @@
 using Core.Cameras;
 using Core.Managers;
 using Core.Loaders;
+using Core.UI;
 using UnityEngine;
 using Zenject;
 
@@ -20,6 +21,9 @@ namespace Core.Context
         [Header("Camera")]
         [SerializeField] private CameraController cameraController;
 
+        [Header("Views")]
+        [SerializeField] private TransitionView transitionView;
+
         #endregion
 
         #region OVERRIDDEN_FUNCTIONS
@@ -29,6 +33,7 @@ namespace Core.Context
             BindManagers();
             BindLoaders();
             BindCamera();
+            BindViews();
         }
 
         #endregion
@@ -49,6 +54,11 @@ namespace Core.Context
         private void BindCamera()
         {
             Container.Bind<CameraController>().FromInstance(cameraController).AsSingle();
+        }
+
+        private void BindViews()
+        {
+            Container.Bind<TransitionView>().FromInstance(transitionView).AsSingle();
         }
 
         #endregion

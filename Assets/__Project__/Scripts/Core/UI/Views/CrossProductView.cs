@@ -1,9 +1,13 @@
 using Core.Misc;
 using Core.Utilities;
+using Core.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 using TMPro;
+using UniRx;
 
 namespace Core.UI
 {
@@ -20,27 +24,39 @@ namespace Core.UI
         [SerializeField] private List<Vector3> initialPositions;
 
         [Header("Points")]
-        [SerializeField] [NaughtyAttributes.ReadOnly] private List<Point> points;
+        [SerializeField] private List<Point> points;
 
         #endregion
 
         #region PRIVATE_VARIABLES
+
+        private TransitionView _transitionView;
 
         private List<Vector3> _pointsPositions;
         private List<PointValues> _pointValues;
 
         #endregion
 
-        #region MONO
+        #region ZENJECT
 
-        private void Awake()
+        [Inject]
+        private void Constructor(TransitionView transitionView)
         {
-            FindPoints();
+            _transitionView = transitionView;
         }
+
+        #endregion
+
+        #region MONO
 
         private void Start()
         {
-            Init();
+            Observable.Timer(TimeSpan.FromSeconds(Constant.InitDelay)).Subscribe(_ =>
+            {
+                _transitionView.Hide();
+
+                Init();
+            });
         }
 
         #endregion
@@ -63,11 +79,6 @@ namespace Core.UI
             UpdatePoint(pointIndex, axis, clampedValue);
             UpdateValues(pointIndex);
             UpdateResult();
-        }
-
-        private void FindPoints()
-        {
-            points = FindObjectsOfType<Point>(true).ToList();
         }
 
         private void Init()

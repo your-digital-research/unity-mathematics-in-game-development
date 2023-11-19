@@ -20,6 +20,7 @@ namespace Core.Context
         [Header("Views")]
         [SerializeField] private DebugView debugView;
         [SerializeField] private MainMenuView mainMenuView;
+        [SerializeField] private TransitionView transitionView;
 
         #endregion
 
@@ -51,6 +52,7 @@ namespace Core.Context
         {
             Container.Bind<DebugView>().FromInstance(debugView).AsSingle();
             Container.Bind<MainMenuView>().FromInstance(mainMenuView).AsSingle();
+            Container.Bind<TransitionView>().FromInstance(transitionView).AsSingle();
         }
 
         #endregion

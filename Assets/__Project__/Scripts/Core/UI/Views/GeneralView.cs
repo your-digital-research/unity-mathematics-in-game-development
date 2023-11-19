@@ -9,15 +9,17 @@ namespace Core.UI
         #region PRIVATE_VARIABLES
 
         private SceneLoader _sceneLoader;
+        private TransitionView _transitionView;
 
         #endregion
 
         #region ZENJECT
 
         [Inject]
-        private void Constructor(SceneLoader sceneLoader)
+        private void Constructor(SceneLoader sceneLoader, TransitionView transitionView)
         {
             _sceneLoader = sceneLoader;
+            _transitionView = transitionView;
         }
 
         #endregion
@@ -26,7 +28,7 @@ namespace Core.UI
 
         public void OnHomeButtonClick()
         {
-            _sceneLoader.LoadMainScene();
+            _transitionView.Show(() => _sceneLoader.LoadMainScene());
         }
 
         #endregion
