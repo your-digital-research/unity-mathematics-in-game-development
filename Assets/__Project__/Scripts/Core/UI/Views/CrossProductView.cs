@@ -140,15 +140,7 @@ namespace Core.UI
 
             _pointsPositions[^1] = dotProduct;
 
-            if (dotProduct.magnitude == 0)
-            {
-                lastPoint.Hide();
-            }
-            else
-            {
-                lastPoint.Show();
-                lastPoint.LookAt(dotProduct);
-            }
+            lastPoint.LookAt(dotProduct);
 
             result.text = "Result Cross Product : {" + $"{dotProduct.x}, {dotProduct.y}, {dotProduct.z}" + "} (XYZ)";
         }
