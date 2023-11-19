@@ -18,10 +18,32 @@ namespace Core.Misc
         #region PROPERTIES
 
         public int Index => index;
+        public bool IsShowing { get; set; }
+
+        #endregion
+
+        #region MONO
+
+        private void Start()
+        {
+            Init();
+        }
 
         #endregion
 
         #region PUBLIC_FUNCTIONS
+
+        public void Show()
+        {
+            IsShowing = true;
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            IsShowing = false;
+            gameObject.SetActive(false);
+        }
 
         public void LookAt(Vector3 position)
         {
@@ -39,6 +61,15 @@ namespace Core.Misc
             Vector3 cylinderScale = cylinder.transform.localScale;
             cylinderScale.z = shiftValue;
             cylinder.transform.localScale = cylinderScale;
+        }
+
+        #endregion
+
+        #region PRIVATE_FUNCTIONS
+
+        private void Init()
+        {
+            Show();
         }
 
         #endregion

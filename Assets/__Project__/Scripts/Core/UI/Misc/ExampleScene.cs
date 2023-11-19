@@ -4,5 +4,6 @@ namespace Core.UI
     {
         Unknown,
         DotProductScene,
+        CrossProductScene,
     }
 }
