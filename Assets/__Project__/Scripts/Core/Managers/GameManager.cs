@@ -1,3 +1,4 @@
+using Core.Constants;
 using UnityEngine;
 
 namespace Core.Managers
@@ -31,7 +32,7 @@ namespace Core.Managers
 
         private void InitFramerate()
         {
-            Application.targetFrameRate = 60;
+            Application.targetFrameRate = Constant.TargetFramerate;
         }
 
         #endregion
