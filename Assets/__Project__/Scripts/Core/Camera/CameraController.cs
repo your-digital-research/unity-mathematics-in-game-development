@@ -77,6 +77,10 @@ namespace Core.Cameras
         private void OnDisable()
         {
             StopMovement();
+        }
+
+        private void OnDestroy()
+        {
             RemoveListeners();
         }
 

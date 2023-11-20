@@ -55,7 +55,7 @@ namespace Core.UI
             });
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             RemoveListeners();
         }
