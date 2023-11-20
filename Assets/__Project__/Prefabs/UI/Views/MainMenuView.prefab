@@ -3202,7 +3202,9 @@ MonoBehaviour:
   buttons: {fileID: 8002498003714387098}
   examples: {fileID: 7397500713696366387}
   settings: {fileID: 3823010404285133105}
-  exampleButtons: []
+  exampleButtons:
+  - {fileID: 6802273778466740600}
+  - {fileID: 6248925450152983498}
 --- !u!1 &8002498004597072465
 GameObject:
   m_ObjectHideFlags: 0

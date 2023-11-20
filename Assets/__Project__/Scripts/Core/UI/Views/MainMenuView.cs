@@ -3,7 +3,6 @@ using Core.Managers;
 using Core.Constants;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Zenject;
 using UniRx;
@@ -20,7 +19,7 @@ namespace Core.UI
         [SerializeField] private GameObject settings;
 
         [Header("Example Buttons")]
-        [SerializeField] [NaughtyAttributes.ReadOnly] private List<ExampleButton> exampleButtons;
+        [SerializeField] private List<ExampleButton> exampleButtons;
 
         #endregion
 
@@ -105,18 +104,11 @@ namespace Core.UI
 
         private void Init()
         {
-            InitButtons();
-
             AddListeners();
 
             ToggleButtonsTab(true);
             ToggleExamplesTab(false);
             ToggleSettingsTab(false);
-        }
-
-        private void InitButtons()
-        {
-            exampleButtons = GetComponentsInChildren<ExampleButton>(true).ToList();
         }
 
         private void ToggleButtonsTab(bool value)
