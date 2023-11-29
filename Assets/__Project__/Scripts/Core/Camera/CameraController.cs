@@ -1,8 +1,7 @@
 using Core.UI;
+using Core.Utilities;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using Cinemachine;
 using Zenject;
 using UniRx;
@@ -87,20 +86,6 @@ namespace Core.Cameras
         #endregion
 
         #region PRIVATE_FUNCTIONS
-
-        private bool IsPointerOverUI()
-        {
-            PointerEventData eventData = new PointerEventData(EventSystem.current)
-            {
-                position = Input.mousePosition
-            };
-
-            var results = new List<RaycastResult>();
-
-            EventSystem.current.RaycastAll(eventData, results);
-
-            return results.Count > 0;
-        }
 
         private void OnMovementUpdated(MovementDirection direction, bool toggle)
         {
@@ -237,7 +222,7 @@ namespace Core.Cameras
 
         private void HandleTouch()
         {
-            if (IsPointerOverUI()) return;
+            if (Utils.IsPointerOverUI()) return;
 
             switch (Input.touchCount)
             {

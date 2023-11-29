@@ -1,5 +1,7 @@
 using Core.Types;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Core.Utilities
 {
@@ -252,5 +254,20 @@ namespace Core.Utilities
 
             return Vector3.Dot(worldPosition - cameraTransform.position, cameraTransform.forward) > 0f;
         }
+
+        public static bool IsPointerOverUI()
+        {
+            PointerEventData eventData = new PointerEventData(EventSystem.current)
+            {
+                position = Input.mousePosition
+            };
+
+            var results = new List<RaycastResult>();
+
+            EventSystem.current.RaycastAll(eventData, results);
+
+            return results.Count > 0;
+        }
+
     }
 }
