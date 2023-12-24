@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 470137617}
   - component: {fileID: 470137618}
   m_Layer: 0
-  m_Name: DotProductSceneInstaller
+  m_Name: SceneInstaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1057,7 +1057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7821989503463710326, guid: ec453a5c557ec4931b795677aaf375e5, type: 3}
       propertyPath: m_Name
-      value: DotProductView
+      value: DotProductVisualisationView
       objectReference: {fileID: 0}
     - target: {fileID: 7821989503463710327, guid: ec453a5c557ec4931b795677aaf375e5, type: 3}
       propertyPath: m_Pivot.x

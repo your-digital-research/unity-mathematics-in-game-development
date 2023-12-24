@@ -11,7 +11,7 @@ using UniRx;
 
 namespace Core.UI
 {
-    public class CrossProductView : MonoBehaviour
+    public class CrossProductVisualisationView : MonoBehaviour
     {
         #region SERIALIZED_VARIABLES
 

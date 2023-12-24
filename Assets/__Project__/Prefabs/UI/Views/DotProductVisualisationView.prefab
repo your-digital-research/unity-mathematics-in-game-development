@@ -4178,7 +4178,7 @@ GameObject:
   - component: {fileID: 7821989503463710325}
   - component: {fileID: 3641831425297214969}
   m_Layer: 0
-  m_Name: DotProductView
+  m_Name: DotProductVisualisationView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

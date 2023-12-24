@@ -11,7 +11,7 @@ using UniRx;
 
 namespace Core.UI
 {
-    public class DotProductView : MonoBehaviour
+    public class DotProductVisualisationView : MonoBehaviour
     {
         #region SERIALIZED_VARIABLES
 

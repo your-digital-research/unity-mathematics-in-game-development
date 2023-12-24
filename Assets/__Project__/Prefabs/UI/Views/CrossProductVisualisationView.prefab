@@ -4178,7 +4178,7 @@ GameObject:
   - component: {fileID: 7821989503463710325}
   - component: {fileID: 6015413873926826880}
   m_Layer: 0
-  m_Name: CrossProductView
+  m_Name: CrossProductVisualisationView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
