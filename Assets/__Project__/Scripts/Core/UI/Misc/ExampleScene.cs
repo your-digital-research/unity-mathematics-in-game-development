@@ -5,5 +5,6 @@ namespace Core.UI
         Unknown,
         DotProductVisualisationScene,
         CrossProductVisualisationScene,
+        DotProductUsageScene,
     }
 }

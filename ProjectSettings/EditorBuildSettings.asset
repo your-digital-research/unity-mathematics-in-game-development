@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/__Project__/Scenes/Examples/CrossProductVisualisationScene.unity
     guid: 3294bc653c1144969bb5f9ac27709d0f
+  - enabled: 1
+    path: Assets/__Project__/Scenes/Examples/DotProductUsageScene.unity
+    guid: c84a5e83792bd4ae2b652a0fb2c809ca
   m_configObjects: {}
