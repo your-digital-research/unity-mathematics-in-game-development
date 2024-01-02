@@ -84,11 +84,11 @@ namespace Core.Utilities
         /// </returns>
         public static CustomQuaternion MultiplyQuaternion(CustomQuaternion firstQuaternion, CustomQuaternion secondQuaternion)
         {
-            float firstScalar = firstQuaternion.w;
-            float secondScalar = secondQuaternion.w;
+            float firstScalar = firstQuaternion.W;
+            float secondScalar = secondQuaternion.W;
 
-            Vector3 firstVector = new Vector3(firstQuaternion.x, firstQuaternion.y, firstQuaternion.z);
-            Vector3 secondVector = new Vector3(secondQuaternion.x, secondQuaternion.y, secondQuaternion.z);
+            Vector3 firstVector = new Vector3(firstQuaternion.X, firstQuaternion.Y, firstQuaternion.Z);
+            Vector3 secondVector = new Vector3(secondQuaternion.X, secondQuaternion.Y, secondQuaternion.Z);
 
             float finalScalar = firstScalar * secondScalar - Vector3.Dot(firstVector, secondVector);
             Vector3 finalVector = firstScalar * secondVector + secondScalar * firstVector + Vector3.Cross(firstVector, secondVector);
@@ -104,7 +104,7 @@ namespace Core.Utilities
         /// <returns>Returns conjugate Quaternion</returns>
         public static CustomQuaternion ConjugateQuaternion(CustomQuaternion quaternion)
         {
-            return new CustomQuaternion(-quaternion.x, -quaternion.y, -quaternion.z, quaternion.w);
+            return new CustomQuaternion(-quaternion.X, -quaternion.Y, -quaternion.Z, quaternion.W);
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace Core.Utilities
 
             rotatedPoint = MultiplyQuaternion(rotatedPoint, conjugateQuaternion);
 
-            return new Vector3(rotatedPoint.x, rotatedPoint.y, rotatedPoint.z);
+            return new Vector3(rotatedPoint.X, rotatedPoint.Y, rotatedPoint.Z);
         }
 
         /// <summary>
