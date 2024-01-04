@@ -269,5 +269,56 @@ namespace Core.Utilities
             return results.Count > 0;
         }
 
+        // Function to convert dot product value to angle in degrees [0, 360]
+        public static float DotProductToDegreesFullCircle(float dotProductValue)
+        {
+            // Ensure dotProductValue is within the valid range [-1, 1]
+            dotProductValue = Mathf.Clamp(dotProductValue, -1f, 1f);
+
+            // Get the angle based on Dot Product value by mapping
+            float angleDegrees = dotProductValue switch
+            {
+                <= 0 and >= -1 => Map(dotProductValue, -1, 0, 360, 90),
+                >= 0 and <= 1 => Map(dotProductValue, 0, 1, 90, 0),
+                _ => 0
+            };
+
+            return angleDegrees;
+        }
+
+        // Function to convert dot product value to angle in degrees [0, 180]
+        public static float DotProductToDegreesHalfCircle(float dotProductValue)
+        {
+            // Ensure dotProductValue is within the valid range [-1, 1]
+            dotProductValue = Mathf.Clamp(dotProductValue, -1f, 1f);
+
+            // Calculate the angle in radians using the inverse cosine function
+            float angleRadians = Mathf.Acos(dotProductValue);
+
+            // Convert radians to degrees
+            float angleDegrees = angleRadians * Mathf.Rad2Deg;
+
+            return angleDegrees;
+        }
+
+        // Function to convert angle in degrees to dot product value
+        public static float DegreesToDotProduct(float angleDegrees)
+        {
+            // Convert degrees to radians
+            float angleRadians = angleDegrees * Mathf.Deg2Rad;
+
+            // Calculate dot product using the cosine function
+            float dotProductValue = Mathf.Cos(angleRadians);
+
+            // Handle precision issues manually
+            const float epsilon = 1e-6f; // Adjust the epsilon based on your needs
+
+            if (Mathf.Abs(dotProductValue) < epsilon)
+            {
+                dotProductValue = 0f;
+            }
+
+            return dotProductValue;
+        }
     }
 }
