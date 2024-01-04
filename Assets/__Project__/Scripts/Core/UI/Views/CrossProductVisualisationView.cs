@@ -153,7 +153,7 @@ namespace Core.UI
 
             lastPoint.LookAt(dotProduct);
 
-            result.text = "Result Cross Product : {" + $"{dotProduct.x}, {dotProduct.y}, {dotProduct.z}" + "} (XYZ)";
+            result.text = "Cross Product : (" + $"{dotProduct.x}, {dotProduct.y}, {dotProduct.z}" + ") (XYZ)";
         }
 
         private void ToggleControlPanel()
