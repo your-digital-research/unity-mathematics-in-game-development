@@ -15,9 +15,9 @@ namespace Core.UI
         #region SERIALIZED_VARIABLES
 
         [Header("References")]
-        [SerializeField] private GameObject buttons;
-        [SerializeField] private GameObject examples;
-        [SerializeField] private GameObject settings;
+        [SerializeField] private GameObject buttonsTab;
+        [SerializeField] private ExamplesTab examplesTab;
+        [SerializeField] private SettingsTab settingsTab;
 
         [Header("Example Buttons")]
         [SerializeField] private List<ExampleButton> exampleButtons;
@@ -114,17 +114,17 @@ namespace Core.UI
 
         private void ToggleButtonsTab(bool value)
         {
-            buttons.SetActive(value);
+            buttonsTab.SetActive(value);
         }
 
         private void ToggleExamplesTab(bool value)
         {
-            examples.SetActive(value);
+            examplesTab.gameObject.SetActive(value);
         }
 
         private void ToggleSettingsTab(bool value)
         {
-            settings.SetActive(value);
+            settingsTab.gameObject.SetActive(value);
         }
 
         private void AddListeners()

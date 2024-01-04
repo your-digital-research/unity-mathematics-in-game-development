@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7007b98b02314493da617ac8aa5fa44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlPanel: {fileID: 1515208202045477115}
+  controlPanelTab: {fileID: 1515208202045477115}
   result: {fileID: 1343022707963978704}
   minMaxValue: {x: -10, y: 10}
   initialPositions:
@@ -978,7 +978,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1159302749719304021, guid: d8abbc1875e79486f849a81c4569e6f7, type: 3}
       propertyPath: m_Name
-      value: ControlPanel
+      value: ControlPanelTab
       objectReference: {fileID: 0}
     - target: {fileID: 2407180102840639983, guid: d8abbc1875e79486f849a81c4569e6f7, type: 3}
       propertyPath: m_Pivot.x

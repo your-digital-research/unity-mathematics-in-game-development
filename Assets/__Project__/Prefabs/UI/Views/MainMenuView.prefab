@@ -819,8 +819,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1052790909841190691}
+  - component: {fileID: 9000418676504817450}
   m_Layer: 0
-  m_Name: Settings
+  m_Name: SettingsTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -847,6 +848,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9000418676504817450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823010404285133105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7f92f12505442379e066efbc65d056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollRect: {fileID: 8577249834590059148}
 --- !u!1 &3882223243084051420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,8 +2027,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5080261220624120340}
+  - component: {fileID: 5687355876099646992}
   m_Layer: 0
-  m_Name: Examples
+  m_Name: ExamplesTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2041,6 +2056,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5687355876099646992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7397500713696366387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4d8390f1de04be5a94857e281a5c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollRect: {fileID: 3852867829562348700}
 --- !u!1 &7645568799364243583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,7 +2587,7 @@ GameObject:
   - component: {fileID: 8002498003714387109}
   - component: {fileID: 8002498003714387108}
   m_Layer: 0
-  m_Name: Buttons
+  m_Name: ButtonsTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3335,9 +3363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe48b9ff708c04a7faf627294a7c47a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttons: {fileID: 8002498003714387098}
-  examples: {fileID: 7397500713696366387}
-  settings: {fileID: 3823010404285133105}
+  buttonsTab: {fileID: 8002498003714387098}
+  examplesTab: {fileID: 5687355876099646992}
+  settingsTab: {fileID: 9000418676504817450}
   exampleButtons:
   - {fileID: 6802273778466740600}
   - {fileID: 6248925450152983498}

@@ -17,7 +17,7 @@ namespace Core.UI
         #region SERIALIZED_VARIABLES
 
         [Header("References")]
-        [SerializeField] private ControlPanel controlPanel;
+        [SerializeField] private ControlPanelTab controlPanelTab;
         [SerializeField] private TextMeshProUGUI result;
 
         [Header("Settings")]
@@ -159,7 +159,7 @@ namespace Core.UI
 
         private void ToggleControlPanel()
         {
-            controlPanel.gameObject.SetActive(!controlPanel.gameObject.activeSelf);
+            controlPanelTab.gameObject.SetActive(!controlPanelTab.gameObject.activeSelf);
         }
 
         #endregion
