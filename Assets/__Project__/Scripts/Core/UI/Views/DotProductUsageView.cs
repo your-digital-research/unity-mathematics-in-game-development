@@ -225,7 +225,9 @@ namespace Core.UI
 
         private void ToggleControlPanel()
         {
-            controlPanelTab.gameObject.SetActive(!controlPanelTab.gameObject.activeSelf);
+            if (!controlPanelTab.IsStable) return;
+
+            controlPanelTab.Toggle(!controlPanelTab.IsVisible);
         }
 
         private void AddListeners()

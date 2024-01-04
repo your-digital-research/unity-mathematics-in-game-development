@@ -1,35 +1,42 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScrollableTab : MonoBehaviour
+namespace Core.UI
 {
-    #region SERIALIZED_VARIABLES
-
-    [Header("Settings")]
-    [SerializeField] private ScrollRect scrollRect;
-
-    #endregion
-
-    #region MONO
-
-    private void Start()
+    public abstract class ScrollableTab : Tab
     {
-        Init();
+        #region SERIALIZED_VARIABLES
+
+        [Header("Settings")]
+        [SerializeField] private ScrollRect scrollRect;
+
+        #endregion
+
+        #region MONO
+
+        private void Start()
+        {
+            Init();
+        }
+
+        #endregion
+
+        #region OVERRIDDEN_FUNCTIONS
+
+        protected override void Init()
+        {
+            InitScroll();
+        }
+
+        #endregion
+
+        #region PRIVATE_FUNCTIONS
+
+        private void InitScroll()
+        {
+            scrollRect.verticalNormalizedPosition = 1f;
+        }
+
+        #endregion
     }
-
-    #endregion
-
-    #region PRIVATE_FUNCTIONS
-
-    private void Init()
-    {
-        InitScroll();
-    }
-
-    private void InitScroll()
-    {
-        scrollRect.verticalNormalizedPosition = 1f;
-    }
-
-    #endregion
 }
