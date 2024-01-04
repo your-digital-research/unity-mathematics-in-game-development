@@ -147,7 +147,7 @@ namespace Core.UI
 
             float dotProduct = Utils.DotProduct(firstPointPosition, secondPointPosition, Vector3.zero);
 
-            result.text = $"Result Dot Product : {dotProduct:F}";
+            result.text = $"Dot Product : {dotProduct:F}";
         }
 
         private void ToggleControlPanel()
