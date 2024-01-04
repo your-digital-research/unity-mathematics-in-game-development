@@ -23,7 +23,7 @@ namespace Core.UI
 
         #region ABSTRACT_FUNCTIONS
 
-        public abstract void Toggle(bool value, Action onComplete = null);
+        public abstract void Toggle(bool value, bool force = false, Action onComplete = null);
 
         protected abstract void Init();
 
