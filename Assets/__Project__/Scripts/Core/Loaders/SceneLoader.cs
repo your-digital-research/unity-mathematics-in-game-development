@@ -1,4 +1,4 @@
-using Core.UI;
+using Core.Types;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

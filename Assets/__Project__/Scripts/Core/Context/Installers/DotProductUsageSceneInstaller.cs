@@ -1,7 +1,7 @@
-using Core.Cameras;
-using Core.Managers;
-using Core.Loaders;
 using Core.UI;
+using Core.Cameras;
+using Core.Loaders;
+using Core.Managers;
 using UnityEngine;
 using Zenject;
 

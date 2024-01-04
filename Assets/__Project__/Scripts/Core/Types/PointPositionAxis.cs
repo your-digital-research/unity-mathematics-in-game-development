@@ -1,4 +1,4 @@
-namespace Core.UI
+namespace Core.Types
 {
     public enum PointPositionAxis
     {

@@ -1,8 +1,8 @@
 using Core.Types;
 using System;
 using System.Collections.Generic;
-using UniRx;
 using UnityEngine;
+using UniRx;
 
 namespace Core.Misc
 {
