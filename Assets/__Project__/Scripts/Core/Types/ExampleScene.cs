@@ -6,5 +6,6 @@ namespace Core.Types
         DotProductVisualisationScene,
         CrossProductVisualisationScene,
         DotProductUsageScene,
+        CrossProductUsageScene,
     }
 }
