@@ -1974,12 +1974,8 @@ MonoBehaviour:
   viewAngle: 90
   meshResolution: 1
   maskCutawayDistance: 0
-  targetFindFrequency: 0.1
   edgeDstThreshold: 0.5
   edgeResolveIterations: 5
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 1
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0

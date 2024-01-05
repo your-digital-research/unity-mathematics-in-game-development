@@ -1,8 +1,6 @@
 using Core.Types;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UniRx;
 
 namespace Core.Misc
 {
@@ -15,12 +13,10 @@ namespace Core.Misc
         [SerializeField] [Range(0, 360)] private float viewAngle;
         [SerializeField] [Range(0, 1)] private float meshResolution;
         [SerializeField] [Range(0, 1)] private float maskCutawayDistance;
-        [SerializeField] [Range(0, 1)] private float targetFindFrequency;
         [SerializeField] [Range(0, 5)] private float edgeDstThreshold;
         [SerializeField] [Range(0, 10)] private int edgeResolveIterations;
 
         [Header("Layers")]
-        [SerializeField] private LayerMask targetMask;
         [SerializeField] private LayerMask obstacleMask;
 
         [Header("References")]
@@ -36,7 +32,6 @@ namespace Core.Misc
         #region PRIVATE_VARIABLES
 
         private Mesh viewMesh;
-        private IDisposable _targetFindingDisposable;
 
         #endregion
 
@@ -54,8 +49,6 @@ namespace Core.Misc
             set => viewRadius = value;
         }
 
-        public List<Transform> VisibleTargets { get; private set; } = new List<Transform>();
-
         #endregion
 
         #region MONO
@@ -68,11 +61,6 @@ namespace Core.Misc
         private void LateUpdate()
         {
             DrawFieldOfView();
-        }
-
-        private void OnDestroy()
-        {
-            StopTargetFind();
         }
 
         #endregion
@@ -139,7 +127,6 @@ namespace Core.Misc
         private void Init()
         {
             InitMesh();
-            InitTargets();
         }
 
         private void InitMesh()
@@ -150,49 +137,6 @@ namespace Core.Misc
             };
 
             viewMeshFilter.mesh = viewMesh;
-        }
-
-        private void InitTargets()
-        {
-            VisibleTargets = new List<Transform>();
-        }
-
-        private void StartTargetFind()
-        {
-            _targetFindingDisposable ??= Observable
-                .Timer(TimeSpan.FromSeconds(targetFindFrequency))
-                .Repeat()
-                .Subscribe(_ =>
-                {
-                    FindVisibleTargets();
-                });
-        }
-
-        private void StopTargetFind()
-        {
-            _targetFindingDisposable?.Dispose();
-            _targetFindingDisposable = null;
-        }
-
-        private void FindVisibleTargets()
-        {
-            VisibleTargets.Clear();
-
-            Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
-
-            for (int i = 0; i < targetsInViewRadius.Length; i++)
-            {
-                Transform target = targetsInViewRadius[i].transform;
-                Vector3 directionToTarget = (target.position - transform.position).normalized;
-
-                if (Vector3.Angle(transform.forward, directionToTarget) >= viewAngle / 2) continue;
-
-                float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
-                if (Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask)) continue;
-
-                VisibleTargets.Add(target);
-            }
         }
 
         private void DrawFieldOfView()

@@ -11,9 +11,19 @@ namespace Core.Editor
 
         private void OnSceneGUI()
         {
+            DrawVisibleArea();
+        }
+
+        #endregion
+
+        #region PRIVATE_FUNCTIONS
+
+        private void DrawVisibleArea()
+        {
             FieldOfView fieldOfView = (FieldOfView)target;
 
             Handles.color = Color.white;
+
             var position = fieldOfView.transform.position;
 
             Handles.DrawWireArc(position, Vector3.up, Vector3.forward, 360, fieldOfView.ViewRadius);
@@ -23,13 +33,6 @@ namespace Core.Editor
 
             Handles.DrawLine(position, position + viewAngleA * fieldOfView.ViewRadius);
             Handles.DrawLine(position, position + viewAngleB * fieldOfView.ViewRadius);
-
-            Handles.color = Color.red;
-
-            foreach (Transform visibleTarget in fieldOfView.VisibleTargets)
-            {
-                Handles.DrawLine(fieldOfView.transform.position, visibleTarget.position);
-            }
         }
 
         #endregion
