@@ -10,7 +10,7 @@ namespace Core.UI
         #region SERIALIZED_VARIABLES
 
         [Header("Settings")]
-        [SerializeField] private PointPositionAxis pointPositionAxis;
+        [SerializeField] private Axis axis;
 
         #endregion
 
@@ -22,13 +22,13 @@ namespace Core.UI
 
         #region PROPERTIES
 
-        public PointPositionAxis PositionAxis => pointPositionAxis;
+        public Axis Axis => axis;
 
         #endregion
 
         #region EVENTS
 
-        public Action<PointPositionAxis, float> PositionChanged;
+        public Action<Axis, float> PositionChanged;
 
         #endregion
 
@@ -64,7 +64,7 @@ namespace Core.UI
 
         private void OnEndEdit(string value)
         {
-            PositionChanged?.Invoke(pointPositionAxis, float.Parse(value));
+            PositionChanged?.Invoke(axis, float.Parse(value));
         }
 
         #endregion

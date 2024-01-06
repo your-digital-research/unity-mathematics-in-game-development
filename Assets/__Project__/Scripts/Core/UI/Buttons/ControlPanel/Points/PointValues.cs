@@ -29,7 +29,7 @@ namespace Core.UI
 
         #region EVENTS
 
-        public Action<int, PointPositionAxis, float> PositionUpdated;
+        public Action<int, Axis, float> PositionUpdated;
 
         #endregion
 
@@ -48,15 +48,15 @@ namespace Core.UI
         {
             foreach (PositionInputField inputField in _positionInputFields)
             {
-                switch (inputField.PositionAxis)
+                switch (inputField.Axis)
                 {
-                    case PointPositionAxis.X:
+                    case Axis.X:
                         inputField.UpdateField(position.x);
                         break;
-                    case PointPositionAxis.Y:
+                    case Axis.Y:
                         inputField.UpdateField(position.y);
                         break;
-                    case PointPositionAxis.Z:
+                    case Axis.Z:
                         inputField.UpdateField(position.z);
                         break;
                 }
@@ -67,9 +67,9 @@ namespace Core.UI
 
         #region PRIVATE_FUNCTIONS
 
-        private void OnPositionChanged(PointPositionAxis positionAxis, float value)
+        private void OnPositionChanged(Axis axis, float value)
         {
-            PositionUpdated?.Invoke(pointIndex, positionAxis, value);
+            PositionUpdated?.Invoke(pointIndex, axis, value);
         }
 
         private void Init()

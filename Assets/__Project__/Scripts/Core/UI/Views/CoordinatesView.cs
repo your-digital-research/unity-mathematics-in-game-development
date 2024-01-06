@@ -73,34 +73,34 @@ namespace Core.UI
             int start = -(int)coordinateRange.y;
             int end = (int)coordinateRange.y;
 
-            AddCoordinate(Vector3.zero, PointPositionAxis.Unknown);
+            AddCoordinate(Vector3.zero, Axis.Unknown);
 
             for (int i = start; i <= end; i++)
             {
                 if (i == 0) continue;
 
-                AddCoordinate(new Vector3(i, 0, 0), PointPositionAxis.X);
-                AddCoordinate(new Vector3(0, i, 0), PointPositionAxis.Y);
-                AddCoordinate(new Vector3(0, 0, i), PointPositionAxis.Z);
+                AddCoordinate(new Vector3(i, 0, 0), Axis.X);
+                AddCoordinate(new Vector3(0, i, 0), Axis.Y);
+                AddCoordinate(new Vector3(0, 0, i), Axis.Z);
             }
         }
 
-        private void AddCoordinate(Vector3 position, PointPositionAxis axis)
+        private void AddCoordinate(Vector3 position, Axis axis)
         {
             Coordinate coordinate = Instantiate(coordinatePrefab, coordinatesContainer);
 
             switch (axis)
             {
-                case PointPositionAxis.Unknown:
+                case Axis.Unknown:
                     coordinate.UpdateCoordinate(0);
                     break;
-                case PointPositionAxis.X:
+                case Axis.X:
                     coordinate.UpdateCoordinate((int)position.x);
                     break;
-                case PointPositionAxis.Y:
+                case Axis.Y:
                     coordinate.UpdateCoordinate((int)position.y);
                     break;
-                case PointPositionAxis.Z:
+                case Axis.Z:
                     coordinate.UpdateCoordinate((int)position.z);
                     break;
                 default:

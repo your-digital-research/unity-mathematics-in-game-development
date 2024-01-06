@@ -1,6 +1,6 @@
 namespace Core.Types
 {
-    public enum PointPositionAxis
+    public enum Axis
     {
         Unknown,
         X,

@@ -97,7 +97,7 @@ namespace Core.UI
             CheckForTrigger();
         }
 
-        private void OnPointPositionUpdated(int pointIndex, PointPositionAxis axis, float value)
+        private void OnPointPositionUpdated(int pointIndex, Axis axis, float value)
         {
             float clampedValue = Mathf.Clamp(value, minMaxValue.x, minMaxValue.y);
 
@@ -151,19 +151,19 @@ namespace Core.UI
             angleRange.Init();
         }
 
-        private void UpdatePoint(int pointIndex, PointPositionAxis axis, float value)
+        private void UpdatePoint(int pointIndex, Axis axis, float value)
         {
             Vector3 position = _pointsPositions[pointIndex];
 
             switch (axis)
             {
-                case PointPositionAxis.X:
+                case Axis.X:
                     position.x = value;
                     break;
-                case PointPositionAxis.Y:
+                case Axis.Y:
                     position.y = value;
                     break;
-                case PointPositionAxis.Z:
+                case Axis.Z:
                     position.z = value;
                     break;
             }

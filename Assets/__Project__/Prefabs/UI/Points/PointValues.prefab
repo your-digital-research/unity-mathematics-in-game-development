@@ -1224,7 +1224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640a2a92c440648558538bd9eca37a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPositionAxis: 2
+  axis: 2
 --- !u!1 &4006901155969780687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,7 +1551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640a2a92c440648558538bd9eca37a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPositionAxis: 1
+  axis: 1
 --- !u!1 &7182800411110556062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,7 +1909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640a2a92c440648558538bd9eca37a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPositionAxis: 3
+  axis: 2
 --- !u!1 &7325748429719652809
 GameObject:
   m_ObjectHideFlags: 0
