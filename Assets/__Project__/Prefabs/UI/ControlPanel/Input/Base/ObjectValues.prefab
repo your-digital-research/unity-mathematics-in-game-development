@@ -262,9 +262,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1995051425877860179}
-  - component: {fileID: 8639606465239545437}
   m_Layer: 0
-  m_Name: PointValues
+  m_Name: ObjectValues
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -293,19 +292,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 750, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8639606465239545437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970380747862174950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2f682cfd3495403da87d76e3cf8c556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointIndex: 0
 --- !u!1 &1995650283679508471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,7 +1004,7 @@ GameObject:
   - component: {fileID: 802157079998794621}
   - component: {fileID: 8166903225013849059}
   m_Layer: 0
-  m_Name: PositionInputField
+  m_Name: InputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1345,7 +1331,7 @@ GameObject:
   - component: {fileID: 8630789619062937694}
   - component: {fileID: 6750165889266530258}
   m_Layer: 0
-  m_Name: PositionInputField
+  m_Name: InputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1618,7 +1604,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Point : '
+  m_text: 'Values : '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 04c6be3177d0a4d31a3d82d12c01404e, type: 2}
   m_sharedMaterial: {fileID: 4214016497355276159, guid: 04c6be3177d0a4d31a3d82d12c01404e, type: 2}
@@ -1703,7 +1689,7 @@ GameObject:
   - component: {fileID: 8668821599316858229}
   - component: {fileID: 5634452343340956273}
   m_Layer: 0
-  m_Name: PositionInputField
+  m_Name: InputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1909,7 +1895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640a2a92c440648558538bd9eca37a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axis: 2
+  axis: 3
 --- !u!1 &7325748429719652809
 GameObject:
   m_ObjectHideFlags: 0

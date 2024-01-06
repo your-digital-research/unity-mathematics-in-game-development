@@ -5,7 +5,7 @@ using TMPro;
 
 namespace Core.UI
 {
-    public class PositionInputField : MonoBehaviour
+    public class InputField : MonoBehaviour
     {
         #region SERIALIZED_VARIABLES
 
@@ -28,7 +28,7 @@ namespace Core.UI
 
         #region EVENTS
 
-        public Action<Axis, float> PositionChanged;
+        public Action<Axis, float> ValueChanged;
 
         #endregion
 
@@ -64,7 +64,7 @@ namespace Core.UI
 
         private void OnEndEdit(string value)
         {
-            PositionChanged?.Invoke(axis, float.Parse(value));
+            ValueChanged?.Invoke(axis, float.Parse(value));
         }
 
         #endregion

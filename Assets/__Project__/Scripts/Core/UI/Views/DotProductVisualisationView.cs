@@ -34,7 +34,7 @@ namespace Core.UI
         private TransitionView _transitionView;
 
         private List<Vector3> _pointsPositions;
-        private List<PointValues> _pointValues;
+        private List<PointPositionValues> _pointsPositionValues;
 
         #endregion
 
@@ -105,9 +105,9 @@ namespace Core.UI
 
         private void InitInputFields()
         {
-            _pointValues = GetComponentsInChildren<PointValues>(true).ToList();
+            _pointsPositionValues = GetComponentsInChildren<PointPositionValues>(true).ToList();
 
-            foreach (PointValues pointValue in _pointValues)
+            foreach (PointPositionValues pointValue in _pointsPositionValues)
             {
                 pointValue.PositionUpdated += OnPointPositionUpdated;
                 pointValue.UpdateFields(initialPositions[pointValue.Index]);
@@ -138,7 +138,7 @@ namespace Core.UI
 
         private void UpdateValues(int pointIndex)
         {
-            _pointValues[pointIndex].UpdateFields(_pointsPositions[pointIndex]);
+            _pointsPositionValues[pointIndex].UpdateFields(_pointsPositions[pointIndex]);
         }
 
         private void UpdateResult()
