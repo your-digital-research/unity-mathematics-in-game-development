@@ -743,27 +743,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6281843513542680187, guid: d8abbc1875e79486f849a81c4569e6f7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6281843513542680187, guid: d8abbc1875e79486f849a81c4569e6f7, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6281843513542680187, guid: d8abbc1875e79486f849a81c4569e6f7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6281843513542680187, guid: d8abbc1875e79486f849a81c4569e6f7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6281843513542680187, guid: d8abbc1875e79486f849a81c4569e6f7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 443.6019
-      objectReference: {fileID: 0}
-    - target: {fileID: 6281843513542680187, guid: d8abbc1875e79486f849a81c4569e6f7, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -800,6 +780,38 @@ PrefabInstance:
       propertyPath: m_text
       value: '2nd Point Position : '
       objectReference: {fileID: 0}
+    - target: {fileID: 5185157905388965645, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185157905388965645, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185157905388965645, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185157905388965645, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532373556359612920, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532373556359612920, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532373556359612920, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532373556359612920, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6054402212827640447, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
       propertyPath: pointIndex
       value: 1
@@ -890,6 +902,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6609158994250336313, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935214226702661919, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935214226702661919, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935214226702661919, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935214226702661919, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -905,6 +933,38 @@ PrefabInstance:
       propertyPath: m_text
       value: '1st Point Position : '
       objectReference: {fileID: 0}
+    - target: {fileID: 5185157905388965645, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185157905388965645, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185157905388965645, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185157905388965645, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532373556359612920, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532373556359612920, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532373556359612920, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532373556359612920, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6054402212827640447, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
       propertyPath: pointIndex
       value: 0
@@ -995,6 +1055,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6609158994250336313, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935214226702661919, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935214226702661919, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935214226702661919, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935214226702661919, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
