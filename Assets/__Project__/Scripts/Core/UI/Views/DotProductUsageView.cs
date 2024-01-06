@@ -103,9 +103,9 @@ namespace Core.UI
         {
             float clampedValue = Mathf.Clamp(value, minMaxValue.x, minMaxValue.y);
 
-            UpdatePoint(pointIndex, axis, clampedValue);
-            UpdateValues(pointIndex);
+            UpdatePointPosition(pointIndex, axis, clampedValue);
             UpdateResult();
+
             CheckForTrigger();
 
             if (pointIndex == 0) UpdateFieldOfView();
@@ -153,7 +153,7 @@ namespace Core.UI
             angleRange.Init();
         }
 
-        private void UpdatePoint(int pointIndex, Axis axis, float value)
+        private void UpdatePointPosition(int pointIndex, Axis axis, float value)
         {
             Vector3 position = _pointsPositions[pointIndex];
 
@@ -170,14 +170,7 @@ namespace Core.UI
                     break;
             }
 
-            _pointsPositions[pointIndex] = position;
-
-            points.Find(point => point.Index == pointIndex).LookAt(position);
-        }
-
-        private void UpdateValues(int pointIndex)
-        {
-            _pointsPositionValues[pointIndex].UpdateFields(_pointsPositions[pointIndex]);
+            SetPointPosition(pointIndex, position);
         }
 
         private void UpdateResult()
@@ -213,6 +206,15 @@ namespace Core.UI
             fieldOfView.ViewAngle = angle;
 
             angleRange.UpdateValue(angle);
+        }
+
+        private void SetPointPosition(int pointIndex, Vector3 position)
+        {
+            _pointsPositions[pointIndex] = position;
+
+            points.Find(point => point.Index == pointIndex).LookAt(position);
+
+            _pointsPositionValues[pointIndex].UpdateFields(_pointsPositions[pointIndex]);
         }
 
         private void CheckForTrigger()

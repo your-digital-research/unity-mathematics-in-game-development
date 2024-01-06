@@ -98,7 +98,7 @@ namespace Core.UI
         {
             float clampedValue = Mathf.Clamp(value, minMaxValue.x, minMaxValue.y);
 
-            UpdatePoint(axis, clampedValue);
+            UpdatePointPosition(axis, clampedValue);
             PerformRaycast();
         }
 
@@ -106,7 +106,7 @@ namespace Core.UI
         {
             float clampedValue = Mathf.Clamp(value, minMaxValue.x, minMaxValue.y);
 
-            UpdateSphere(axis, clampedValue);
+            UpdateSpherePosition(axis, clampedValue);
             PerformRaycast();
         }
 
@@ -155,7 +155,7 @@ namespace Core.UI
             scaleRange.Init();
         }
 
-        private void UpdatePoint(Axis axis, float value)
+        private void UpdatePointPosition(Axis axis, float value)
         {
             Vector3 position = _pointPosition;
 
@@ -175,7 +175,7 @@ namespace Core.UI
             SetPointPosition(position);
         }
 
-        private void UpdateSphere(Axis axis, float value)
+        private void UpdateSpherePosition(Axis axis, float value)
         {
             Vector3 position = _spherePosition;
 
