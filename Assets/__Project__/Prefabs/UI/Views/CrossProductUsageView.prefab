@@ -542,8 +542,8 @@ MonoBehaviour:
   raycastSphere: {fileID: 0}
   raycastCube: {fileID: 0}
   minMaxValue: {x: -10, y: 10}
-  pointInitialPosition: {x: 0, y: 1.25, z: 2.5}
-  sphereInitialPosition: {x: 0, y: 2.5, z: 5}
+  pointInitialPosition: {x: 0, y: 1, z: 5}
+  sphereInitialPosition: {x: 0, y: 0, z: 5}
   scaleRange: {fileID: 1627664009582059484}
   point: {fileID: 0}
 --- !u!1 &8159458440782756370
