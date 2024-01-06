@@ -49,19 +49,26 @@ namespace Core.UI
         {
             transform.localScale = Vector3.zero;
 
-            transform
-                .DOScale(Vector3.one, showHideDuration)
-                .SetEase(Ease.OutBack)
-                .OnStart(() => gameObject.SetActive(true))
-                .OnComplete(() =>
-                {
-                    IsVisible = true;
-                    IsStable = true;
+            if (force)
+            {
+                // TODO - Implement if case of need
+            }
+            else
+            {
+                transform
+                    .DOScale(Vector3.one, showHideDuration)
+                    .SetEase(Ease.OutBack)
+                    .OnStart(() => gameObject.SetActive(true))
+                    .OnComplete(() =>
+                    {
+                        IsVisible = true;
+                        IsStable = true;
 
-                    blocker.raycastTarget = false;
+                        blocker.raycastTarget = false;
 
-                    onComplete?.Invoke();
-                });
+                        onComplete?.Invoke();
+                    });
+            }
         }
 
         private void Hide(bool force = false, Action onComplete = null)
@@ -70,18 +77,25 @@ namespace Core.UI
 
             transform.localScale = Vector3.one;
 
-            transform
-                .DOScale(Vector3.zero, showHideDuration)
-                .SetEase(Ease.InBack)
-                .OnComplete(() =>
-                {
-                    IsVisible = false;
-                    IsStable = true;
+            if (force)
+            {
+                // TODO - Implement if case of need
+            }
+            else
+            {
+                transform
+                    .DOScale(Vector3.zero, showHideDuration)
+                    .SetEase(Ease.InBack)
+                    .OnComplete(() =>
+                    {
+                        IsVisible = false;
+                        IsStable = true;
 
-                    gameObject.SetActive(false);
+                        gameObject.SetActive(false);
 
-                    onComplete?.Invoke();
-                });
+                        onComplete?.Invoke();
+                    });
+            }
         }
 
         #endregion

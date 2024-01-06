@@ -8,6 +8,9 @@ namespace Core.UI
     {
         #region SERIALIZED_VARIABLES
 
+        [Header("References")]
+        [SerializeField] private RectTransform selfRectTransform;
+
         [Header("Settings")]
         [SerializeField] [Range(0, 5)] private float showHideDuration;
         [SerializeField] [Range(0, 25)] private float offsetForBorders;
@@ -18,21 +21,15 @@ namespace Core.UI
 
         public override void Toggle(bool value, bool force = false, Action onComplete = null)
         {
-            RectTransform rectTransform = GetComponent<RectTransform>();
-            Transform selfTransform = rectTransform.transform;
-            Vector3 selfPosition = selfTransform.position;
-
-            float height = rectTransform.rect.height;
-
             IsStable = false;
 
             if (value)
             {
-                Show(force, rectTransform, selfTransform, selfPosition, height);
+                Show(force, onComplete);
             }
             else
             {
-                Hide(force, rectTransform, selfTransform, selfPosition, height);
+                Hide(force, onComplete);
             }
         }
 
@@ -47,43 +44,65 @@ namespace Core.UI
 
         #region PRIVATE_FUNCTIONS
 
-        private void Show(bool force, RectTransform rectTransform, Transform selfTransform, Vector3 selfPosition, float height, Action onComplete = null)
+        private void Show(bool force, Action onComplete = null)
         {
-            Vector3 newPosition = new Vector3(selfPosition.x, -height - offsetForBorders, selfPosition.z);
+            float height = selfRectTransform.rect.height;
+            float endY = 0;
 
-            selfTransform.position = newPosition;
+            Vector2 startPosition = new Vector3(0, -height - offsetForBorders);
+            Vector2 endPosition = new Vector2(0, endY);
 
-            rectTransform
-                .DOMoveY(0, showHideDuration)
-                .SetEase(Ease.OutBack)
-                .OnStart(() => gameObject.SetActive(true))
-                .OnComplete(() =>
-                {
-                    IsVisible = true;
-                    IsStable = true;
+            selfRectTransform.anchoredPosition = startPosition;
 
-                    onComplete?.Invoke();
-                });
+            if (force)
+            {
+                // TODO - Implement if case of need
+            }
+            else
+            {
+                selfRectTransform
+                    .DOMoveY(0, showHideDuration)
+                    .SetEase(Ease.OutBack)
+                    .OnStart(() => gameObject.SetActive(true))
+                    .OnComplete(() =>
+                    {
+                        IsVisible = true;
+                        IsStable = true;
+
+                        onComplete?.Invoke();
+                    });
+            }
         }
 
-        private void Hide(bool force, RectTransform rectTransform, Transform selfTransform, Vector3 selfPosition, float height, Action onComplete = null)
+        private void Hide(bool force, Action onComplete = null)
         {
-            Vector3 newPosition = new Vector3(selfPosition.x, 0, selfPosition.z);
+            float height = selfRectTransform.rect.height;
+            float endY = -height - offsetForBorders;
 
-            selfTransform.position = newPosition;
+            Vector2 startPosition = new Vector2(0, 0);
+            Vector2 endPosition = new Vector2(0, endY);
 
-            rectTransform
-                .DOAnchorPosY(-height - offsetForBorders, showHideDuration)
-                .SetEase(Ease.InBack)
-                .OnComplete(() =>
-                {
-                    IsVisible = false;
-                    IsStable = true;
+            selfRectTransform.anchoredPosition = startPosition;
 
-                    gameObject.SetActive(false);
+            if (force)
+            {
+                // TODO - Implement if case of need
+            }
+            else
+            {
+                selfRectTransform
+                    .DOAnchorPosY(endY, showHideDuration)
+                    .SetEase(Ease.InBack)
+                    .OnComplete(() =>
+                    {
+                        IsVisible = false;
+                        IsStable = true;
 
-                    onComplete?.Invoke();
-                });
+                        gameObject.SetActive(false);
+
+                        onComplete?.Invoke();
+                    });
+            }
         }
 
         #endregion

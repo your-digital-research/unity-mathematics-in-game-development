@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollRect: {fileID: 5771205123672869452}
+  selfRectTransform: {fileID: 2407180102840639983}
   showHideDuration: 0.25
   offsetForBorders: 15
 --- !u!1 &2807866061733414997

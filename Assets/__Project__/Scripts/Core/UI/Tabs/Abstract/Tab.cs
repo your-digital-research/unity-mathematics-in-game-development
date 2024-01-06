@@ -7,7 +7,7 @@ namespace Core.UI
     {
         #region PROPERTIES
 
-        public bool IsVisible { get; protected set; }
+        public bool IsVisible { get; protected set; } = false;
         public bool IsStable { get; protected set; } = true;
 
         #endregion

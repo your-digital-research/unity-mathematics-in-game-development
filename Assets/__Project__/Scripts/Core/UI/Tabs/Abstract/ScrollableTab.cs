@@ -12,15 +12,6 @@ namespace Core.UI
 
         #endregion
 
-        #region MONO
-
-        private void Start()
-        {
-            Init();
-        }
-
-        #endregion
-
         #region OVERRIDDEN_FUNCTIONS
 
         protected override void Init()
