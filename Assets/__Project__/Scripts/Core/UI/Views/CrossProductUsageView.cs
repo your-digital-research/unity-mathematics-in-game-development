@@ -1,7 +1,11 @@
+using Core.Misc;
+using Core.Types;
+using Core.Utilities;
 using Core.Constants;
 using System;
 using UnityEngine;
 using Zenject;
+using TMPro;
 using UniRx;
 
 namespace Core.UI
@@ -12,12 +16,33 @@ namespace Core.UI
 
         [Header("References")]
         [SerializeField] private ControlPanelTab controlPanelTab;
+        [SerializeField] private TextMeshProUGUI rightVectorCrossProductResult;
+        [SerializeField] private TextMeshProUGUI forwardVectorCrossProductResult;
+        [SerializeField] private Transform raycastSphere;
+        [SerializeField] private Transform raycastCube;
+
+        [Header("Settings")]
+        [SerializeField] [NaughtyAttributes.MinMaxSlider(-50, 50)] private Vector2 minMaxValue;
+        [SerializeField] private Vector3 pointInitialPosition;
+        [SerializeField] private Vector3 sphereInitialPosition;
+
+        [Header("Ranges")]
+        [SerializeField] private ScaleRange scaleRange;
+
+        [Header("Points")]
+        [SerializeField] private Point point;
 
         #endregion
 
         #region PRIVATE_VARIABLES
 
         private TransitionView _transitionView;
+
+        private Vector3 _pointPosition;
+        private Vector3 _spherePosition;
+
+        private PointPositionValues _pointPositionValues;
+        private SpherePositionValues _spherePositionValues;
 
         #endregion
 
@@ -43,6 +68,11 @@ namespace Core.UI
             });
         }
 
+        private void OnDestroy()
+        {
+            RemoveListeners();
+        }
+
         #endregion
 
         #region PUBLIC_FUNCTIONS
@@ -56,9 +86,195 @@ namespace Core.UI
 
         #region PRIVATE_FUNCTIONS
 
+        private void OnScaleRangeUpdated(float scale)
+        {
+            UpdateSphereScale(scale);
+            PerformRaycast();
+        }
+
+        private void OnPointPositionUpdated(int pointIndex, Axis axis, float value)
+        {
+            float clampedValue = Mathf.Clamp(value, minMaxValue.x, minMaxValue.y);
+
+            UpdatePoint(axis, clampedValue);
+            PerformRaycast();
+        }
+
+        private void OnSpherePositionUpdated(Axis axis, float value)
+        {
+            float clampedValue = Mathf.Clamp(value, minMaxValue.x, minMaxValue.y);
+
+            UpdateSphere(axis, clampedValue);
+            PerformRaycast();
+        }
+
         private void Init()
         {
-            //
+            AddListeners();
+
+            InitPositions();
+            InitPoint();
+            InitSphere();
+            InitInputFields();
+            InitRanges();
+
+            PerformRaycast();
+        }
+
+        private void InitPositions()
+        {
+            _pointPosition = pointInitialPosition;
+            _spherePosition = sphereInitialPosition;
+        }
+
+        private void InitPoint()
+        {
+            point.LookAt(_pointPosition);
+        }
+
+        private void InitSphere()
+        {
+            raycastSphere.transform.position = _spherePosition;
+        }
+
+        private void InitInputFields()
+        {
+            _pointPositionValues = GetComponentInChildren<PointPositionValues>(true);
+            _pointPositionValues.PositionUpdated += OnPointPositionUpdated;
+            _pointPositionValues.UpdateFields(pointInitialPosition);
+
+            _spherePositionValues = GetComponentInChildren<SpherePositionValues>(true);
+            _spherePositionValues.PositionUpdated += OnSpherePositionUpdated;
+            _spherePositionValues.UpdateFields(sphereInitialPosition);
+        }
+
+        private void InitRanges()
+        {
+            scaleRange.Init();
+        }
+
+        private void UpdatePoint(Axis axis, float value)
+        {
+            Vector3 position = _pointPosition;
+
+            switch (axis)
+            {
+                case Axis.X:
+                    position.x = value;
+                    break;
+                case Axis.Y:
+                    position.y = value;
+                    break;
+                case Axis.Z:
+                    position.z = value;
+                    break;
+            }
+
+            SetPointPosition(position);
+        }
+
+        private void UpdateSphere(Axis axis, float value)
+        {
+            Vector3 position = _spherePosition;
+
+            switch (axis)
+            {
+                case Axis.X:
+                    position.x = value;
+                    break;
+                case Axis.Y:
+                    position.y = value;
+                    break;
+                case Axis.Z:
+                    position.z = value;
+                    break;
+            }
+
+            SetSpherePosition(position);
+        }
+
+        private void UpdateSphereScale(float scale)
+        {
+            raycastSphere.localScale = Vector3.one * scale;
+        }
+
+        private void PerformRaycast()
+        {
+            Vector3 origin = Vector3.zero;
+            Vector3 direction = _pointPosition.normalized;
+
+            int waitFramesCount = 5;
+
+            Observable
+                .TimerFrame(waitFramesCount)
+                .Subscribe(_ =>
+                {
+                    if (Physics.Raycast(origin, direction, out RaycastHit hit))
+                    {
+                        Vector3 hitPosition = hit.point;
+                        Vector3 normal = hit.normal;
+                        Vector3 right = Utils.CrossProduct(normal, direction).normalized;
+                        Vector3 forward = Utils.CrossProduct(right, normal);
+
+                        bool reversed = Utils.DotProduct(normal, Vector3.up, Vector3.zero) < 0;
+
+                        SetPointPosition(hitPosition);
+                        ToggleCube(true, hitPosition, normal, reversed);
+                        UpdateResults(right, forward);
+                    }
+                    else
+                    {
+                        ToggleCube(false, Vector3.zero, Vector3.zero, false);
+                        UpdateResults(Vector3.zero, Vector3.zero);
+                    }
+                });
+        }
+
+        private void UpdateResults(Vector3 right, Vector3 forward)
+        {
+            rightVectorCrossProductResult.text = "Right Vector Cross Product : (" + $"{right.x:F}, {right.y:F}, {right.z:F}" + ") (XYZ)";
+            forwardVectorCrossProductResult.text = "Forward Vector Cross Product : (" + $"{forward.x:F}, {forward.y:F}, {forward.z:F}" + ") (XYZ)";
+        }
+
+        private void SetPointPosition(Vector3 position)
+        {
+            _pointPosition = position;
+
+            point.LookAt(position);
+
+            _pointPositionValues.UpdateFields(position);
+        }
+
+        private void SetSpherePosition(Vector3 position)
+        {
+            _spherePosition = position;
+
+            raycastSphere.transform.position = position;
+
+            _spherePositionValues.UpdateFields(position);
+        }
+
+        private void ToggleCube(bool value, Vector3 hitPosition, Vector3 normal, bool reversed)
+        {
+            Transform raycastCubeTransform = raycastCube.transform;
+
+            if (value)
+            {
+                raycastCubeTransform.position = hitPosition;
+
+                Quaternion rotation = Quaternion.FromToRotation(Vector3.up, normal);
+
+                if (reversed) rotation *= Quaternion.Euler(0f, 180f, 0f);
+
+                raycastCubeTransform.rotation = rotation;
+            }
+            else
+            {
+                raycastCubeTransform.position = Vector3.zero;
+                raycastCubeTransform.forward = Vector3.forward;
+            }
+
+            raycastCube.gameObject.SetActive(value);
         }
 
         private void ToggleControlPanel()
@@ -66,6 +282,16 @@ namespace Core.UI
             if (!controlPanelTab.IsStable) return;
 
             controlPanelTab.Toggle(!controlPanelTab.IsVisible);
+        }
+
+        private void AddListeners()
+        {
+            scaleRange.ValueChanged += OnScaleRangeUpdated;
+        }
+
+        private void RemoveListeners()
+        {
+            scaleRange.ValueChanged -= OnScaleRangeUpdated;
         }
 
         #endregion
