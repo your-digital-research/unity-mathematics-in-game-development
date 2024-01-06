@@ -232,8 +232,8 @@ namespace Core.UI
 
         private void UpdateResults(Vector3 right, Vector3 forward)
         {
-            rightVectorCrossProductResult.text = "Right Vector Cross Product : (" + $"{right.x:F}, {right.y:F}, {right.z:F}" + ") (XYZ)";
-            forwardVectorCrossProductResult.text = "Forward Vector Cross Product : (" + $"{forward.x:F}, {forward.y:F}, {forward.z:F}" + ") (XYZ)";
+            rightVectorCrossProductResult.text = "<color=#FF0000>Right Vector <color=#FFF>Cross Product : (" + $"{right.x:F}, {right.y:F}, {right.z:F}" + ") (XYZ)";
+            forwardVectorCrossProductResult.text = "<color=#0000FF>Forward Vector <color=#FFF>Cross Product : (" + $"{forward.x:F}, {forward.y:F}, {forward.z:F}" + ") (XYZ)";
         }
 
         private void SetPointPosition(Vector3 position)
