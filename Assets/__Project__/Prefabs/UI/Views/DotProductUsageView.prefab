@@ -660,6 +660,10 @@ PrefabInstance:
       propertyPath: m_text
       value: '1st Point Position : '
       objectReference: {fileID: 0}
+    - target: {fileID: 5419657980690570263, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6054402212827640447, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
       propertyPath: pointIndex
       value: 0
@@ -1162,6 +1166,10 @@ PrefabInstance:
     - target: {fileID: 480609737140605615, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
       propertyPath: m_text
       value: '2nd Point Position : '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419657980690570263, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6054402212827640447, guid: 6451f9e1860934a0e9831be1cddf4ead, type: 3}
       propertyPath: pointIndex
