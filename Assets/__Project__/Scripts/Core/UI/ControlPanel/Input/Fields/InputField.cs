@@ -55,7 +55,7 @@ namespace Core.UI
 
         public void UpdateField(float value)
         {
-            _inputField.text = $"{value}";
+            _inputField.text = $"{value:F}";
         }
 
         #endregion
