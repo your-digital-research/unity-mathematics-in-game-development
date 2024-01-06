@@ -120,7 +120,7 @@ namespace Core.UI
             InitInputFields();
             InitRanges();
 
-            PerformRaycast();
+            PerformRaycast(0);
         }
 
         private void InitPositions()
@@ -200,12 +200,10 @@ namespace Core.UI
             raycastSphere.localScale = Vector3.one * scale;
         }
 
-        private void PerformRaycast()
+        private void PerformRaycast(int waitFramesCount = 5)
         {
             Vector3 origin = Vector3.zero;
             Vector3 direction = _pointPosition.normalized;
-
-            int waitFramesCount = 5;
 
             Observable
                 .TimerFrame(waitFramesCount)
