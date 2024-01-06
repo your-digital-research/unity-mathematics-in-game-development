@@ -264,7 +264,11 @@ namespace Core.UI
             {
                 raycastCubeTransform.position = hitPosition;
 
-                float angleBetween = Vector3.SignedAngle(Vector3.forward, _spherePosition, Vector3.up);
+                Vector3 spherePosition = _spherePosition;
+
+                spherePosition.y = 0;
+
+                float angleBetween = Vector3.SignedAngle(Vector3.forward, spherePosition, Vector3.up);
 
                 Quaternion rotation = Quaternion.FromToRotation(Vector3.up, normal);
 
