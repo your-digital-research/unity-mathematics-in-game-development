@@ -59,12 +59,14 @@ namespace Core.UI
 
         private void Start()
         {
-            Observable.Timer(TimeSpan.FromSeconds(Constant.InitDelay)).Subscribe(_ =>
-            {
-                _transitionView.Hide();
+            Observable
+                .Timer(TimeSpan.FromSeconds(Constant.InitDelay))
+                .Subscribe(_ =>
+                {
+                    _transitionView.Hide();
 
-                Init();
-            });
+                    Init();
+                });
         }
 
         private void OnDestroy()
