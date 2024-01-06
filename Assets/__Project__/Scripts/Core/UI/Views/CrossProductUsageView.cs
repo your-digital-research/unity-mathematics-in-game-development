@@ -219,12 +219,12 @@ namespace Core.UI
                         bool reversed = Utils.DotProduct(normal, Vector3.up, Vector3.zero) < 0;
 
                         SetPointPosition(hitPosition);
-                        ToggleCube(true, hitPosition, normal, reversed);
+                        ToggleHit(true, hitPosition, normal, reversed);
                         UpdateResults(right, forward);
                     }
                     else
                     {
-                        ToggleCube(false, Vector3.zero, Vector3.zero, false);
+                        ToggleHit(false, Vector3.zero, Vector3.zero, false);
                         UpdateResults(Vector3.zero, Vector3.zero);
                     }
                 });
@@ -254,8 +254,10 @@ namespace Core.UI
             _spherePositionValues.UpdateFields(position);
         }
 
-        private void ToggleCube(bool value, Vector3 hitPosition, Vector3 normal, bool reversed)
+        private void ToggleHit(bool value, Vector3 hitPosition, Vector3 normal, bool reversed)
         {
+            point.TogglePointer(value);
+
             Transform raycastCubeTransform = raycastCube.transform;
 
             if (value)

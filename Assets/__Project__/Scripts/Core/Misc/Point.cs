@@ -25,6 +25,17 @@ namespace Core.Misc
 
         #region PUBLIC_FUNCTIONS
 
+        public void TogglePointer(bool value)
+        {
+            Vector3 cylinderScale = cylinder.transform.localScale;
+
+            cone.gameObject.SetActive(!value);
+
+            cylinderScale.z += value ? 1 : 0;
+
+            cylinder.transform.localScale = cylinderScale;
+        }
+
         public void LookAt(Vector3 position)
         {
             transform.LookAt(position);
