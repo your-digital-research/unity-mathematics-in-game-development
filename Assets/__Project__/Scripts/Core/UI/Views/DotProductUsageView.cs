@@ -192,7 +192,7 @@ namespace Core.UI
         {
             Vector3 firstPointPosition = _pointsPositions[0];
 
-            fieldOfView.ViewRadius = firstPointPosition.magnitude;
+            fieldOfView.ViewRadius = firstPointPosition.z;
         }
 
         private void UpdateRangesAfterAngleRangeChanged(float angle)
