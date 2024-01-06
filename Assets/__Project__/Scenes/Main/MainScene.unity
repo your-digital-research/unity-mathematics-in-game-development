@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564840, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_Name
-      value: Example_Cube
+      value: RotatingCube
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564844, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_RootOrder
@@ -327,7 +327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564840, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_Name
-      value: Example_Cube
+      value: RotatingCube
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564844, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_RootOrder
@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564840, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_Name
-      value: Example_Cube
+      value: RotatingCube
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564844, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_RootOrder
@@ -727,7 +727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564840, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_Name
-      value: Example_Cube
+      value: RotatingCube
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564844, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_RootOrder
@@ -805,7 +805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564840, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_Name
-      value: Example_Cube
+      value: RotatingCube
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564844, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_RootOrder
@@ -1490,7 +1490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564840, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_Name
-      value: Example_Cube
+      value: RotatingCube
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564844, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_RootOrder
@@ -1560,7 +1560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564840, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_Name
-      value: Example_Cube
+      value: RotatingCube
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564844, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_RootOrder
@@ -1639,7 +1639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564840, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_Name
-      value: Example_Cube
+      value: RotatingCube
       objectReference: {fileID: 0}
     - target: {fileID: 8566456838620564844, guid: a8cd5ba4bb1554de1867ce23c11dc00c, type: 3}
       propertyPath: m_RootOrder
