@@ -1,6 +1,6 @@
 # Mathematics In Game Development
 
-This repository, developed by Davit Badalyan, is a collection of examples showcasing various mathematical concepts employed in game development.
+This repository, developed by [Davit Badalyan](https://github.com/davit-badalyan), is a collection of examples showcasing various mathematical concepts employed in game development.
 
 ## Table of Contents
 
