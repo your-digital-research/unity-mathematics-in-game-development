@@ -1,6 +1,6 @@
 # Mathematics In Game Development
 
-// TODO
+This repository, developed by Davit Badalyan, is a collection of examples showcasing various mathematical concepts employed in game development.
 
 ## Table of Contents
 
@@ -12,21 +12,35 @@
 
 ## <a name="about"></a> About
 
-// TODO
+"Mathematics In Game Development" is a diploma project for university that explores various mathematical concepts essential for game development. The project aims to provide clear explanations and practical examples of how these mathematical concepts are applied in game development, showcasing their importance and utility in creating immersive gaming experiences.
+
+During the development of this project, the following sources were instrumental in studying and understanding mathematical concepts:
+
+- [Jettelly](https://www.jettelly.com/): Jettelly provides comprehensive books on mathematics, including those specifically relevant to game development.
+- [Acegikmo's YouTube Channel](https://www.youtube.com/@Acegikmo/videos): Acegikmo offers video courses covering various mathematical topics essential for game development.
+- [3Blue1Brown YouTube Channel](https://www.youtube.com/@3blue1brown): 3Blue1Brown offers engaging math courses with visualizations, such as the Essence of Linear Algebra series, which proved invaluable for gaining a deeper understanding of mathematical concepts.
 
 ## <a name="examples"></a> Examples
 
-// TODO
+Dive into various math concepts through the provided examples.
+
+Note: These examples were developed using Unity 2021 LTS.
 
 ## <a name="getting-started"></a> Getting Started
 
-To dive into the examples and learn more about the mathematical concepts used in game development, follow these simple steps:
+To explore the examples and delve into the mathematical concepts used in game development, follow these steps:
 
 1. **Clone the Repository**
+
    ```bash
    git clone https://github.com/your-digital-research/unity-math-for-game-devs.git
    ```
-2. TODO
+
+2. Open in Unity
+   - Open Unity and navigate to the **\_\_Project\_\_** directory within the cloned repository.
+3. Running the project
+   - Within the **Scenes** directory, open the **MainScene** located in the **Main** directory to start from the **Main Menu**.
+   - Alternatively, you can directly open individual examples by selecting a desired scene from the **Examples** directory and running the project.
 
 ## <a name="useful-links"></a>Useful links
 
@@ -45,7 +59,7 @@ To dive into the examples and learn more about the mathematical concepts used in
 
 ## <a name="license"></a> License
 
-// TODO
+This repository is licensed under the [MIT License](https://opensource.org/license/mit/).
 
 If you have any questions, encounter issues, or wish to share suggestions, please open an issue.
 
