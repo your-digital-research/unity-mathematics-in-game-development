@@ -1,45 +1,52 @@
 # Mathematics In Game Development
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Useful links](#useful-links)
-3. [Features](#features)
-4. [Installation](#installation)
-5. [Usage](#usage)
-6. [Contributing](#contributing)
-7. [License](#license)
+// TODO
 
-## <a name="introduction"></a>Introduction
-To be modified...
+## Table of Contents
+
+- [About](#about)
+- [Examples](#examples)
+- [Getting Started](#getting-started)
+- [Useful Links](#useful-links)
+- [License](#license)
+
+## <a name="about"></a> About
+
+// TODO
+
+## <a name="examples"></a> Examples
+
+// TODO
+
+## <a name="getting-started"></a> Getting Started
+
+To dive into the examples and learn more about the mathematical concepts used in game development, follow these simple steps:
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/your-digital-research/unity-math-for-game-devs.git
+   ```
+2. TODO
 
 ## <a name="useful-links"></a>Useful links
-1. [Dot Product Visualization](https://twitter.com/FreyaHolmer/status/1200807790580768768?lang=en)
-2. [Cross Product Visualization](https://twitter.com/FreyaHolmer/status/1203059678705602562?lang=en)
-3. [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
-4. [Visualizing quaternions (4d numbers) with stereographic projection](https://www.youtube.com/watch?v=d4EgbgTm0Bg&ab_channel=3Blue1Brown)
-5. [Quaternions and 3d rotation, explained interactively](https://www.youtube.com/watch?v=zjMuIxRvygQ&ab_channel=3Blue1Brown)
-6. [The Strange Numbers That Birthed Modern Algebra](https://www.quantamagazine.org/the-strange-numbers-that-birthed-modern-algebra-20180906/)
-7. [Visualizing Quaternions](https://eater.net/quaternions)
-8. [Quaternion](https://en.wikipedia.org/wiki/Quaternion)
-9. [Fantastic Quaternions - Numberphile](https://www.youtube.com/watch?v=3BR8tK-LuB0&ab_channel=Numberphile)
-10. [Khan Academy - Math - Precalculus - Unit 3: Complex numbers](https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:complex)
-11. [Visualizing Equations](https://www.jettelly.com/books/visualizing-equations-essential-math/)
-12. [Euler (gimbal lock) Explained](https://www.youtube.com/watch?v=zc8b2Jo7mno&t=4s&ab_channel=GuerrillaCG)
 
-## <a name="features"></a>Features
-To be modified...
+1. [Quaternion](https://en.wikipedia.org/wiki/Quaternion)
+2. [Visualizing Equations](https://www.jettelly.com/books/visualizing-equations-essential-math/)
+3. [Visualizing Quaternions](https://eater.net/quaternions)
+4. [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
+5. [Dot Product Visualization](https://twitter.com/FreyaHolmer/status/1200807790580768768?lang=en)
+6. [Cross Product Visualization](https://twitter.com/FreyaHolmer/status/1203059678705602562?lang=en)
+7. [Euler (gimbal lock) Explained](https://www.youtube.com/watch?v=zc8b2Jo7mno&t=4s&ab_channel=GuerrillaCG)
+8. [Fantastic Quaternions - Numberphile](https://www.youtube.com/watch?v=3BR8tK-LuB0&ab_channel=Numberphile)
+9. [The Strange Numbers That Birthed Modern Algebra](https://www.quantamagazine.org/the-strange-numbers-that-birthed-modern-algebra-20180906/)
+10. [Quaternions and 3d rotation, explained interactively](https://www.youtube.com/watch?v=zjMuIxRvygQ&ab_channel=3Blue1Brown)
+11. [Khan Academy - Math - Precalculus - Unit 3: Complex numbers](https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:complex)
+12. [Visualizing quaternions (4d numbers) with stereographic projection](https://www.youtube.com/watch?v=d4EgbgTm0Bg&ab_channel=3Blue1Brown)
 
-## <a name="installation"></a>Installation
-To install, follow these steps:
-1. Clone the repository.
-2. To be modified...
+## <a name="license"></a> License
 
-## <a name="usage"></a>Usage
-To use the project, do the following:
-1. To be modified...
+// TODO
 
-## <a name="contributing"></a>Contributing
-To be modified...
+If you have any questions, encounter issues, or wish to share suggestions, please open an issue.
 
-## <a name="license"></a>License
-To be modified...
+Happy coding!
