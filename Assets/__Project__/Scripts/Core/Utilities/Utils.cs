@@ -37,9 +37,9 @@ namespace Core.Utilities
         /// </returns>
         public static Vector3 CrossProduct(Vector3 firstVector, Vector3 secondVector)
         {
-            float x = firstVector.y * secondVector.z - firstVector.z * secondVector.y;
-            float y = firstVector.z * secondVector.x - firstVector.x * secondVector.z;
-            float z = firstVector.x * secondVector.y - firstVector.y * secondVector.x;
+            float x = (firstVector.y * secondVector.z) - (firstVector.z * secondVector.y);
+            float y = (firstVector.z * secondVector.x) - (firstVector.x * secondVector.z);
+            float z = (firstVector.x * secondVector.y) - (firstVector.y * secondVector.x);
 
             return new Vector3(x, y, z);
         }
