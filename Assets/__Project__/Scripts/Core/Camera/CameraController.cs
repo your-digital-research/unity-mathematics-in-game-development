@@ -18,6 +18,7 @@ namespace Core.Cameras
         [SerializeField] private CinemachineVirtualCamera mainCamera;
 
         [Header("Settings")]
+        [SerializeField] private bool allowEditorMovement = true;
         [SerializeField] [Range(0, 25)] private float movementSpeed;
         [SerializeField] [Range(0, 360)] private float touchRotationSpeed;
         [SerializeField] [Range(0, 360)] private float inputRotationSpeed;
@@ -197,11 +198,14 @@ namespace Core.Cameras
         private void HandleInputRotation()
         {
 #if UNITY_EDITOR
-            // Rotate Input
-            float yaw = Input.GetAxis("Mouse X");
-            float pitch = Input.GetAxis("Mouse Y");
+            if (allowEditorMovement)
+            {
+                // Rotate Input
+                float yaw = Input.GetAxis("Mouse X");
+                float pitch = Input.GetAxis("Mouse Y");
 
-            Rotate(yaw, pitch, false, inputRotationSpeed);
+                Rotate(yaw, pitch, false, inputRotationSpeed);
+            }
 #endif
             Rotate(_yaw, _pitch, true, inputRotationSpeed);
         }
@@ -209,14 +213,17 @@ namespace Core.Cameras
         private void HandleMovement()
         {
 #if UNITY_EDITOR
-            // Movement Input
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
-            float upInput = Input.GetKey(KeyCode.E) ? 1.0f : 0.0f;
-            float downInput = Input.GetKey(KeyCode.Q) ? 1.0f : 0.0f;
-            bool isBoosted = Input.GetKey(KeyCode.LeftShift);
+            if (allowEditorMovement)
+            {
+                // Movement Input
+                float horizontalInput = Input.GetAxis("Horizontal");
+                float verticalInput = Input.GetAxis("Vertical");
+                float upInput = Input.GetKey(KeyCode.E) ? 1.0f : 0.0f;
+                float downInput = Input.GetKey(KeyCode.Q) ? 1.0f : 0.0f;
+                bool isBoosted = Input.GetKey(KeyCode.LeftShift);
 
-            Move(horizontalInput, verticalInput, upInput, downInput, isBoosted);
+                Move(horizontalInput, verticalInput, upInput, downInput, isBoosted);
+            }
 #endif
             Move(_horizontalInput, _verticalInput, _upInput, _downInput, _isBoosted);
         }
