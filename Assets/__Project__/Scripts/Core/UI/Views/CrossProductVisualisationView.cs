@@ -148,7 +148,7 @@ namespace Core.UI
 
             lastPoint.LookAt(dotProduct);
 
-            result.text = "Cross Product : (" + $"{dotProduct.x}, {dotProduct.y}, {dotProduct.z}" + ") (XYZ)";
+            result.text = "Cross Product\n(" + $"{dotProduct.x}, {dotProduct.y}, {dotProduct.z}" + ") (XYZ)";
         }
 
         private void SetPointPosition(int pointIndex, Vector3 position)

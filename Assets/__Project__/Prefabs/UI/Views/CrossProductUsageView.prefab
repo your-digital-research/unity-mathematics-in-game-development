@@ -66,8 +66,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<color=#FF0000>Right Vector <color=#FFF>Cross Product: \n(0, 0, 0) (X,
-    Y, Z)"
+  m_text: '<color=#FF0000>Cross Product<color=#FFF>
+
+    (0, 0, 0) (X, Y, Z)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 04c6be3177d0a4d31a3d82d12c01404e, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 614169bf9f92a46128ed7884f7396ffd, type: 2}
@@ -94,12 +95,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
+  m_fontSize: 34.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 28
+  m_fontSizeMax: 36
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -227,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+  m_EffectColor: {r: 0.45490196, g: 0.45490196, b: 0.45490196, a: 1}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
 --- !u!114 &2355024441216166897
@@ -311,10 +312,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=#0000FF>Forward Vector <color=#FFF>Cross Product :
+  m_text: '<color=#0000FF>Cross Product<color=#FFF>
 
-    (0, 0,
-    0) (X, Y, Z)'
+    (0, 0, 0) (X, Y, Z)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 04c6be3177d0a4d31a3d82d12c01404e, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 614169bf9f92a46128ed7884f7396ffd, type: 2}
@@ -341,12 +341,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
+  m_fontSize: 34.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 28
+  m_fontSizeMax: 36
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -880,7 +880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+  m_EffectColor: {r: 0.45490196, g: 0.45490196, b: 0.45490196, a: 1}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
 --- !u!114 &5940730055529661909
