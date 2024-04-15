@@ -33,7 +33,7 @@ To explore the examples and delve into the mathematical concepts used in game de
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-digital-research/unity-math-for-game-devs.git
+   git clone https://github.com/your-digital-research/unity-mathematics-in-game-development
    ```
 
 2. Open in Unity
