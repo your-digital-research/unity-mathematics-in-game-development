@@ -47,34 +47,18 @@ To explore the examples and delve into the mathematical concepts used in game de
 
 ## <a name="preview"></a> Preview
 
-<div style="display: inline-block; justify-content: space-around;">
-   <div style="display: inline-block; text-align: center;">
-      <p><b>Main Menu</b></p>
-      <img src="Assets/GIF/main-menu-preview-1.gif" alt="Main Menu Preview" width="250"/>
-   </div>
-</div>
+<p align="center"><b>Main Menu<b></p>
+<p align="center">
+  <img src="Assets/GIF/main-menu-preview-1.gif" alt="Main Menu Preview" title="Main Menu" width="250">
+</p>
 <hr>
-<div style="display: inline-block; justify-content: space-around;">
-   <div style="display: inline-block; text-align: center;">
-      <p><b>Dot Product Visualization</b></p>
-      <img src="Assets/GIF/dot-product-visualization-1.gif" alt="Dot Product Visualization Preview" width="250"/>
-   </div>
-   <div style="display: inline-block; text-align: center;">
-      <p><b>Cross Product Visualization</b></p>
-      <img src="Assets/GIF/cross-product-visualization-1.gif" alt="Cross Product Visualization Preview" width="250"/>
-   </div>
-</div>
-<hr>
-<div style="display: inline-block; justify-content: space-around;">
-   <div style="display: inline-block; text-align: center;">
-      <p><b>Dot Product Usage</b></p>
-      <img src="Assets/GIF/dot-product-usage-1.gif" alt="Dot Product Usage Preview" width="250"/>
-   </div>
-   <div style="display: inline-block; text-align: center;">
-      <p><b>Cross Product Usage</b></p>
-      <img src="Assets/GIF/cross-product-usage-1.gif" alt="Cross Product Usage Preview" width="250"/>
-   </div>
-</div>
+<p align="center"><b>Examples<b></p>
+<p align="center">
+  <img src="Assets/GIF/dot-product-visualization-1.gif" alt="Dot Product Visualization Preview" title="Dot Product Visualization" width="250">
+  <img src="Assets/GIF/cross-product-visualization-1.gif" alt="Cross Product Visualization Preview" title="Cross Product Visualization" width="250">
+  <img src="Assets/GIF/dot-product-usage-1.gif" alt="Dot Product Usage Preview" title="Dot Product Usage" width="250">
+  <img src="Assets/GIF/cross-product-usage-1.gif" alt="Cross Product Usage Preview" title="Cross Product Usage" width="250">
+</p>
 
 ## <a name="useful-links"></a>Useful links
 
