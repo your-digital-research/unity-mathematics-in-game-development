@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 7628833003929566150}
   mainCamera: {fileID: 7628833005483558855}
-  allowEditorMovement: 1
+  allowEditorMovement: 0
   movementSpeed: 15
   touchRotationSpeed: 5
   inputRotationSpeed: 30
