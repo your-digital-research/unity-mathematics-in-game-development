@@ -49,15 +49,15 @@ To explore the examples and delve into the mathematical concepts used in game de
 
 <p align="center"><b>Main Menu<b></p>
 <p align="center">
-  <img src="Assets/GIF/main-menu-preview-1.gif" alt="Main Menu Preview" title="Main Menu" width="250">
+  <img src="Assets/GIF/main-menu-preview-1.gif" alt="Main Menu Preview" title="Main Menu" width="150">
 </p>
 <hr>
 <p align="center"><b>Examples<b></p>
 <p align="center">
-  <img src="Assets/GIF/dot-product-visualization-1.gif" alt="Dot Product Visualization Preview" title="Dot Product Visualization" width="250">
-  <img src="Assets/GIF/cross-product-visualization-1.gif" alt="Cross Product Visualization Preview" title="Cross Product Visualization" width="250">
-  <img src="Assets/GIF/dot-product-usage-1.gif" alt="Dot Product Usage Preview" title="Dot Product Usage" width="250">
-  <img src="Assets/GIF/cross-product-usage-1.gif" alt="Cross Product Usage Preview" title="Cross Product Usage" width="250">
+  <img src="Assets/GIF/dot-product-visualization-1.gif" alt="Dot Product Visualization Preview" title="Dot Product Visualization" width="150">
+  <img src="Assets/GIF/cross-product-visualization-1.gif" alt="Cross Product Visualization Preview" title="Cross Product Visualization" width="150">
+  <img src="Assets/GIF/dot-product-usage-1.gif" alt="Dot Product Usage Preview" title="Dot Product Usage" width="150">
+  <img src="Assets/GIF/cross-product-usage-1.gif" alt="Cross Product Usage Preview" title="Cross Product Usage" width="150">
 </p>
 
 ## <a name="useful-links"></a>Useful links
