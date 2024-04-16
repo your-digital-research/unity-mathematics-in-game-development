@@ -45,7 +45,7 @@ To explore the examples and delve into the mathematical concepts used in game de
    - Within the **Scenes** directory, open the **MainScene** located in the **Main** directory to start from the **Main Menu**.
    - Alternatively, you can directly open individual examples by selecting a desired scene from the **Examples** directory and running the project.
 
-## <a name="Preview"></a> Preview
+## <a name="preview"></a> Preview
 
 <div style="display: flex; justify-content: space-around;">
    <div style="text-align: center;">
