@@ -7,6 +7,7 @@ This repository, developed by [Davit Badalyan](https://github.com/davit-badalyan
 - [About](#about)
 - [Examples](#examples)
 - [Getting Started](#getting-started)
+- [Preview](#preview)
 - [Useful Links](#useful-links)
 - [License](#license)
 
@@ -41,6 +42,66 @@ To explore the examples and delve into the mathematical concepts used in game de
 3. Running the project
    - Within the **Scenes** directory, open the **MainScene** located in the **Main** directory to start from the **Main Menu**.
    - Alternatively, you can directly open individual examples by selecting a desired scene from the **Examples** directory and running the project.
+
+## <a name="Preview"></a> Preview
+
+<div style="display: flex; justify-content: space-around;">
+   <div style="text-align: center;">
+      <p><b>Main Menu</b></p>
+      <img src="Preview/main-menu-preview-1.gif" alt="Main Menu Preview" width="250"/>
+   </div>
+</div>
+<hr>
+<div style="display: flex; justify-content: space-around;">
+   <div style="text-align: center;">
+      <p><b>Dot Product Visualization</b></p>
+      <img src="Preview/dot-product-visualization-1.gif" alt="Dot Product Visualization Preview" width="250"/>
+   </div>
+   <div style="text-align: center;">
+      <p><b>Cross Product Visualization</b></p>
+      <img src="Preview/cross-product-visualization-1.gif" alt="Cross Product Visualization Preview" width="250"/>
+   </div>
+</div>
+<hr>
+<div style="display: flex; justify-content: space-around;">
+   <div style="text-align: center;">
+      <p><b>Dot Product Usage</b></p>
+      <img src="Preview/dot-product-usage-1.gif" alt="Dot Product Usage Preview" width="250"/>
+   </div>
+   <div style="text-align: center;">
+      <p><b>Cross Product Usage</b></p>
+      <img src="Preview/cross-product-usage-1.gif" alt="Cross Product Usage Preview" width="250"/>
+   </div>
+</div>
+
+<!-- <div style="display: flex;">
+    <div style="flex: 1;">
+      <p><b>Main Menu</b></p>
+      <img src="Preview/main-menu-preview-1.gif" alt="Main Menu Preview" width="250"/>
+    </div>
+</div>
+<hr>
+<div style="display: flex;">
+    <div style="flex: 1;">
+      <p><b>Dot Product Visualization</b></p>
+      <img src="Preview/dot-product-visualization-1.gif" alt="Dot Product Visualization Preview" width="250"/>
+    </div>
+    <div style="flex: 1;">
+         <p><b>Cross Product Visualization</b></p>
+         <img src="Preview/cross-product-visualization-1.gif" alt="Cross Product Visualization Preview" width="250"/>
+    </div>
+</div>
+<hr>
+<div style="display: flex;">
+    <div style="flex: 1;">
+      <p><b>Dot Product Usage</b></p>
+      <img src="Preview/dot-product-usage-1.gif" alt="Dot Product Usage Preview" width="250"/>
+    </div>
+    <div style="flex: 1;">
+         <p><b>Cross Product Usage</b></p>
+         <img src="Preview/cross-product-usage-1.gif" alt="Cross Product Usage Preview" width="250"/>
+    </div>
+</div> -->
 
 ## <a name="useful-links"></a>Useful links
 
