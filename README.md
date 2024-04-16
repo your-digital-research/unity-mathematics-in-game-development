@@ -47,30 +47,30 @@ To explore the examples and delve into the mathematical concepts used in game de
 
 ## <a name="preview"></a> Preview
 
-<div style="display: flex; justify-content: space-around;">
-   <div style="text-align: center;">
+<div style="display: inline-block; justify-content: space-around;">
+   <div style="display: inline-block; text-align: center;">
       <p><b>Main Menu</b></p>
       <img src="Assets/GIF/main-menu-preview-1.gif" alt="Main Menu Preview" width="250"/>
    </div>
 </div>
 <hr>
-<div style="display: flex; justify-content: space-around;">
-   <div style="text-align: center;">
+<div style="display: inline-block; justify-content: space-around;">
+   <div style="display: inline-block; text-align: center;">
       <p><b>Dot Product Visualization</b></p>
       <img src="Assets/GIF/dot-product-visualization-1.gif" alt="Dot Product Visualization Preview" width="250"/>
    </div>
-   <div style="text-align: center;">
+   <div style="display: inline-block; text-align: center;">
       <p><b>Cross Product Visualization</b></p>
       <img src="Assets/GIF/cross-product-visualization-1.gif" alt="Cross Product Visualization Preview" width="250"/>
    </div>
 </div>
 <hr>
-<div style="display: flex; justify-content: space-around;">
-   <div style="text-align: center;">
+<div style="display: inline-block; justify-content: space-around;">
+   <div style="display: inline-block; text-align: center;">
       <p><b>Dot Product Usage</b></p>
       <img src="Assets/GIF/dot-product-usage-1.gif" alt="Dot Product Usage Preview" width="250"/>
    </div>
-   <div style="text-align: center;">
+   <div style="display: inline-block; text-align: center;">
       <p><b>Cross Product Usage</b></p>
       <img src="Assets/GIF/cross-product-usage-1.gif" alt="Cross Product Usage Preview" width="250"/>
    </div>
