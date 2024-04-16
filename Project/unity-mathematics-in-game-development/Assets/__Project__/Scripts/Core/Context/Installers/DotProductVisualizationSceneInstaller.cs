@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Core.Context
 {
-    public class CrossProductVisualisationSceneInstaller : MonoInstaller
+    public class DotProductVisualizationSceneInstaller : MonoInstaller
     {
         #region SERIALIZED_VARIABLES
 

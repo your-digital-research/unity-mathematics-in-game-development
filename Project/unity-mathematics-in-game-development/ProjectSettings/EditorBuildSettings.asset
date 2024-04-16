@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/__Project__/Scenes/Main/MainScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/__Project__/Scenes/Examples/DotProductVisualisationScene.unity
+    path: Assets/__Project__/Scenes/Examples/DotProductVisualizationScene.unity
     guid: 5bcbbd151906841afbcefe7d37953cbe
   - enabled: 1
-    path: Assets/__Project__/Scenes/Examples/CrossProductVisualisationScene.unity
+    path: Assets/__Project__/Scenes/Examples/CrossProductVisualizationScene.unity
     guid: 3294bc653c1144969bb5f9ac27709d0f
   - enabled: 1
     path: Assets/__Project__/Scenes/Examples/DotProductUsageScene.unity

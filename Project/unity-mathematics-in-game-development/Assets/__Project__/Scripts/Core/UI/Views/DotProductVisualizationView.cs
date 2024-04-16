@@ -12,7 +12,7 @@ using UniRx;
 
 namespace Core.UI
 {
-    public class CrossProductVisualisationView : MonoBehaviour
+    public class DotProductVisualizationView : MonoBehaviour
     {
         #region SERIALIZED_VARIABLES
 
@@ -137,18 +137,12 @@ namespace Core.UI
 
         private void UpdateResult()
         {
-            Point lastPoint = points[^1];
-
             Vector3 firstPointPosition = _pointsPositions[0];
             Vector3 secondPointPosition = _pointsPositions[1];
 
-            Vector3 dotProduct = Utils.CrossProductViaMatrix(firstPointPosition, secondPointPosition);
+            float dotProduct = Utils.DotProduct(firstPointPosition, secondPointPosition, Vector3.zero);
 
-            _pointsPositions[^1] = dotProduct;
-
-            lastPoint.LookAt(dotProduct);
-
-            result.text = "Cross Product\n(" + $"{dotProduct.x}, {dotProduct.y}, {dotProduct.z}" + ") (XYZ)";
+            result.text = $"Dot Product\n{dotProduct:F}";
         }
 
         private void SetPointPosition(int pointIndex, Vector3 position)
@@ -157,7 +151,7 @@ namespace Core.UI
 
             points.Find(point => point.Index == pointIndex).LookAt(position);
 
-            _pointsPositionValues[pointIndex].UpdateFields(_pointsPositions[pointIndex]);
+            _pointsPositionValues[pointIndex].UpdateFields(position);
         }
 
         private void ToggleControlPanel()
