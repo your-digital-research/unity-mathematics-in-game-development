@@ -214,7 +214,7 @@ namespace Core.UI
                         Vector3 hitPosition = hit.point;
                         Vector3 normal = hit.normal;
                         Vector3 right = Utils.CrossProduct(normal, direction).normalized;
-                        Vector3 forward = Utils.CrossProduct(right, normal);
+                        Vector3 forward = Utils.CrossProduct(right, normal).normalized;
 
                         bool reversed = Utils.DotProduct(normal, Vector3.up, Vector3.zero) < 0;
 
